@@ -57,6 +57,9 @@ floating_modifier $mod
 # Start a terminal
 bindsym $mod+Return exec konsole
 
+# Start Firefox
+bindsym $mod+w exec firefox
+
 # Kill focused window
 bindsym $mod+Shift+q kill
 
@@ -108,8 +111,8 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split 
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
