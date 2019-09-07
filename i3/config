@@ -57,6 +57,15 @@ floating_modifier $mod
 # Start a terminal
 bindsym $mod+Return exec konsole
 
+# Start file explorer
+bindsym $mod+e exec dolphin
+
+# Start the web browser
+bindsym $mod+w exec brave-browser
+
+# Start incognito browser
+bindsym $mod+Control+w exec brave-browser --incognito
+
 # Start Firefox
 bindsym $mod+w exec firefox
 
@@ -110,14 +119,14 @@ bindsym $mod+v split h
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# bindsym $mod+s layout stacking
 # bindsym $mod+w layout tabbed
 # bindsym $mod+e layout toggle split 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -216,12 +225,13 @@ for_window [title="Desktop — Plasma"] kill, floating enable, border none
 
 ## Avoid tiling popups, dropdown windows from plasma
 # for the first time, manually resize them, i3 will remember the setting for floating windows
-for_window [class="plasmashell"] floating enable
+for_window [class="Klipper"] floating enable, border none
+for_window [class="Kmix"] floating enable, border none
+for_window [class="krunner"] floating enable, border none
 for_window [class="Plasma"] floating enable, border none
+for_window [class="plasmashell"] floating enable
+for_window [class="plasmashell" window_type="notification"] floating enable, border none
+for_window [class="Plasmoidviewer"] floating enable, border none
+for_window [title="Pidgin"] floating enable, border none
 for_window [title="plasma-desktop"] floating enable, border none
 for_window [title="win7"] floating enable, border none
-for_window [title="Pidgin"] floating enable, border none
-for_window [class="krunner"] floating enable, border none
-for_window [class="Kmix"] floating enable, border none
-for_window [class="Klipper"] floating enable, border none
-# for_window [class="Plasmoidviewer"] floating enable, border none
