@@ -224,4 +224,4 @@ for_window [title="Pidgin"] floating enable, border none
 for_window [class="krunner"] floating enable, border none
 for_window [class="Kmix"] floating enable, border none
 for_window [class="Klipper"] floating enable, border none
-for_window [class="Plasmoidviewer"] floating enable, border none
+# for_window [class="Plasmoidviewer"] floating enable, border none
