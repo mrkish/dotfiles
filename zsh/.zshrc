@@ -1,4 +1,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:~/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mrk/.oh-my-zsh"
@@ -106,13 +108,20 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+alias c='clear'
+alias x='exit'
 alias bp='vim ~/.zshrc'
 alias zp='vim ~/.zshrc'
 alias vrc='vim ~/.vimrc'
-alias src='source ~/.zshrc'
+alias i3p='vim ~/.config/i3/config'
+alias zsrc='source ~/.zshrc'
+alias gp='git pull'
 alias gt='go test'
 alias gs='git status'
 alias ga='git add'
+alias gaa='git add --all'
+alias gacm="git add --all && git commit -m"
+alias gph="git push origin HEAD"
 alias gcm='git commit -m'
 alias glg='git log --graph'
 alias gbl='git branch --list'
@@ -121,6 +130,7 @@ alias dl='cd ~/Downloads'
 alias cdc='cd ~/code'
 alias sendf='cd /mnt/F42C26542C2611E2/code/sendfriend'
 alias cdx='cd /mnt/F42C26542C2611E2/'
+alias cdcx='cd /mnt/F42C26542C2611E2/code'
 alias weather='curl wttr.in'
 alias notes='vim note:note'
 alias note='vim note:note'
@@ -128,7 +138,9 @@ alias todo='vim note:todo'
 alias weather='curl wttr.in'
 alias tls='tmux list-sessions'
 alias ta='tmux attach -t'
-alias bg='cp wallpaper.jpg ~/Pictures/ && feh --bg-scale ~/Pictures/wallpaper.jpg'
+alias sbg='cp wallpaper.jpg ~/Pictures/ && feh --bg-scale ~/Pictures/wallpaper.jpg'
+alias bg='feh --bg-scale ~/Pictures/wallpaper.jpg'
+alias vimgo='vim -u ~/.vimrc.go'
 
 # general use
 alias ls='exa'                                                          # ls
