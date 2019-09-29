@@ -1,179 +1,173 @@
 set nocompatible
 filetype off                  " required
+ 
+"---------- Plugins -------------------------------------------------- 
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-plug'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+Plug 'jiangmiao/auto-pairs'
+Plug 'dense-analysis/ale'
+Plug 'git://git.wincent.com/command-t'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'} 
+Plug 'itchyny/lightline.vim' 
+Plug 'fatih/vim-go'
+Plug 'junegun/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
+Plug 'junegun/fzf.vim'
+Plug 'scrooloose/nerdtree' 
+Plug 'scrooloose/syntastic' 
+Plug 'airblade/vim-gitgutter'
+call plug#end()
 
-execute pathogen#infect()
-
-" set the runtime path to include Vundle and initialize
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
- Plugin 'tpope/vim-fugitive'
- Plugin 'tpope/vim-surround'
- Plugin 'xolox/vim-misc.git'
- Plugin 'xolox/vim-notes.git'
- Plugin 'jiangmiao/auto-pairs'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin) 
-" " Plugin 'file:///home/gmarik/path/to/plugin' 
-" The sparkup vim script is in a subdirectory of this repo called vim.  
-" Pass the path to set the runtimepath properly.  
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} 
-" Install L9 and avoid a Naming conflict if you've already installed a 
-" different version somewhere else.  
-" Plugin 'ascenator/L9', {'name': 'newL9'} 
-Plugin 'junegunn/fzf.vim' 
-Plugin 'itchyny/lightline.vim' 
-
-Plugin 'fatih/vim-go.git'
-Plugin 'scrooloose/nerdtree' 
-Plugin 'scrooloose/syntastic' 
-
-Plugin 'airblade/vim-gitgutter'
-" All of your Plugins must be added before the following line 
-call vundle#end()            " required 
 filetype plugin indent on    " required 
-" To ignore plugin indent changes, instead use: 
-" filetype plugin on " " Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+
+" Enable fzf
+set rtp+=~/.fzf
 
 set completeopt=longest,menuone
+set noswapfile
 set history=999
 set showcmd
-set showmode
 set autoread
 set laststatus=2
 set ruler
 set wildmenu
-" set cursorline
+set cursorline
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+" Errors
 set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-set encoding=utf8
-set ffs=unix,dos,mac
-" highlight trailing space
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+set visualbell
 set mouse=a
 set background=dark
 set number
 set relativenumber
-
-" Turn off backups/swap
 set nobackup
 set nowb
-set noswapfile
-
+set undodir=~/.vim/undodir
 set shiftwidth=2
 set expandtab
-set smarttab
-set wrap
-
+set nowrap
 set scrolloff=2
 set sidescrolloff=5
 set confirm
+set lazyredraw
+set ttyfast
 syntax on
 set nomodeline
-colorscheme elflord
-filetype plugin indent on
+" colorscheme molokai // Currently being set in nvim
+set termguicolors
+set noshowmode
 
-" Using lightline for status bar -- saving this for later
-" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
-set statusline+=%#warningmsg#
-set statusline+=%#{SyntasticStatuslineFlag()}#
-set statusline+=%*
-
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-" vnoremap <silent> * :call VisualSelection('f', '')<CR>
-" vnoremap <silent> # :call VisualSelection('b', '')<CR>
-
-" Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-" Remap VIM 0 to first non-blank character
-map 0 ^
-
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><CR> :noh<CR>
-
+" Searching
 set hlsearch
-set infercase
+set incsearch
 set ignorecase
 set smartcase
-set incsearch
-set lazyredraw
-set showmatch
-set magic
-set mat=2
 set ai
 set si
-set foldenable
-set foldlevelstart=10
-set foldnestmax=10
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
+" Adds the current Git branch to the lightline
+let g:lightline = { 
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
+
+" Automatically reload files when they're edited outside of current buffer
+set autoread
+auto FocusGained,BufEnter * :checktime
+
+
+"---------- Bindings  -------------------------------------------------- 
 nnoremap j gj
 nnoremap k gk
-let mapleader = "\<Space>"
+let mapleader = ','
+nnoremap <Leader>p :Files<CR>
+nnoremap <Leader>l :Lines<CR>
+nnoremap <Leader>P :Commands<CR>
+nnoremap <Leader>t :GoTest<CR>
+nnoremap <Leader>r :GoRun %<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>d :r!date<CR>
+nnoremap <Leader>\ :let @/ = ""<CR>
+nnoremap <Leader>gt :!go test ./... -coverprofile coverage.out<CR>
+vnoremap <silent><leader>f <Esc>:FZF -q <C-R>=<SID>getVisualSelection()<CR><CR>
+nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 map <C-K> :bprev<CR>
 map <C-J> :bnext<CR>
-" map <C-[> <esc>
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
-set ttyfast
-set undodir=~/.vim/undodir
+
+
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-" augroup ProjectDrawer
-"   autocmd!
-"   autocmd VimEnter * :Vexplore
-" augroup END
-" NerdTree Settings
-" autocmd VimEnter * NERDTREE
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" map <S-n> :NERDTreeToggle<CR>
 
+
+" Golang syntax highlighting
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_funciton_calls=1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_generate_tags = 1
+
+
+" mhinz/vim-grepper
+let g:grepper={}
+let g:grepper.tools=["rg"]
+xmap gr <plug>(GrepperOperator)
+
+" After searching for text, press this mapping to do a project wide find and
+" replace. It's similar to <leader>r except this one applies to all matches
+" across all files instead of just the current file.
+nnoremap <Leader>R
+  \ :let @s='\<'.expand('<cword>').'\>'<CR>
+  \ :Grepper -cword -noprompt<CR>
+  \ :cfdo %s/<C-r>s//g \| update
+  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+" The same as above except it works with a visual selection.
+xmap <Leader>R
+    \ "sy
+    \ gvgr
+    \ :cfdo %s/<C-r>s//g \| update
+     \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+map <S-n> :NERDTreeToggle<CR>
+nmap <Leader>n :NERDTreeToggle<Enter>
+
+" Jump to last cursor position unless it's invalid or in an event handler
 augroup vimrcEx
   autocmd!
   autocmd FileType text setlocal textwidth=78
-  " Jump to last cursor position unless it's invalid or in an event handler
   autocmd BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \     exe "normal g`\"" |
         \ endif
 augroup END
 
+
+"---------- Funcitons  -------------------------------------------------- 
+
+" Allows TAB to bring up an autocomplete window
 function! InsertTabWrapper()
   let col = col('.') - 1
   if !col || getline('.')[col - 1] !~ '\k'
@@ -188,25 +182,25 @@ inoremap <s-tab> <c-n>
 " setting Vim-Note directory
 let g:notes_directories = ['~/Dropbox/Documents/Notes']
 
+function! s:getVisualSelection()
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
 
-" Helper function
-function! VisualSelection(direction, extra_filter) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
-
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-    if a:direction == 'b'
-        execute "normal ?" . l:pattern . "^M"
-    elseif a:direction == 'gv'
-        call CmdLine("Ack \"" . l:pattern . "\" " )
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
-    elseif a:direction == 'f'
-        execute "normal /" . l:pattern . "^M"
+    if len(lines) == 0
+        return ""
     endif
 
-    let @/ = l:pattern
-    let @" = l:saved_reg
+    let lines[-1] = lines[-1][:column_end - (&selection == "inclusive" ? 1 : 2)]
+    let lines[0] = lines[0][column_start - 1:]
+
+    return join(lines, "\n")
 endfunction
+
+
+"-----------------Scraps---------------------------------"
+" Using lightline for status bar -- saving this for later  
+" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
+" set statusline+=%#warningmsg#
+" set statusline+=%#{SyntasticStatuslineFlag()}#
+" set statusline+=%*

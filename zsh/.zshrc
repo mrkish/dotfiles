@@ -1,9 +1,12 @@
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:~/bin
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH=$PATH:~/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mrk/.oh-my-zsh"
+# FPATH=~/.zfunc:$PATH
+# export FPATH="$HOME/.zfunc:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -28,7 +31,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
-# Uncomment the following line to automatically update without prompting.
+# Uncomment the following line to automatically update without prompting.a
 # DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -44,7 +47,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -76,7 +79,7 @@ vi-mode
 chucknorris
 zsh-syntax-highlighting
 zsh-256color
-# zsh-aliases-exa
+zsh-aliases-exa
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -106,17 +109,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias c='clear'
 alias x='exit'
-alias bp='vim ~/.zshrc'
-alias zp='vim ~/.zshrc'
-alias vrc='vim ~/.vimrc'
-alias i3p='vim ~/.config/i3/config'
+alias v='nvim'
+alias bp='nvim ~/.zshrc'
+alias zp='nvim ~/.zshrc'
+alias vrc='nvim ~/.vimrc'
+alias trc='nvim ~/.tmux.conf'
+alias nvrc='nvim ~/.config/nvim/init.vim'
+alias i3p='nvim ~/.config/i3/config'
 alias zsrc='source ~/.zshrc'
 alias gp='git pull'
-alias gt='go test'
+alias gt='go test ./... -coverprofile=coverage.out && go vet ./... '
+alias goc='go tool cover -html=coverage.out'
 alias gs='git status'
 alias ga='git add'
 alias gaa='git add --all'
@@ -126,25 +133,36 @@ alias gcm='git commit -m'
 alias glg='git log --graph'
 alias gbl='git branch --list'
 alias gpod='git push origin develop'
+alias pb='~/bin/pb.sh'
 alias dl='cd ~/Downloads'
 alias cdc='cd ~/code'
 alias sendf='cd /mnt/F42C26542C2611E2/code/sendfriend'
 alias cdx='cd /mnt/F42C26542C2611E2/'
 alias cdcx='cd /mnt/F42C26542C2611E2/code'
 alias weather='curl wttr.in'
-alias notes='vim note:note'
-alias note='vim note:note'
-alias todo='vim note:todo'
+alias notes='nvim note:note'
+alias note='nvim note:note'
+alias todo='nvim note:todo'
 alias weather='curl wttr.in'
 alias tls='tmux list-sessions'
+alias tm='tmux new -A -s '
 alias ta='tmux attach -t'
 alias sbg='cp wallpaper.jpg ~/Pictures/ && feh --bg-scale ~/Pictures/wallpaper.jpg'
 alias bg='feh --bg-scale ~/Pictures/wallpaper.jpg'
 alias vimgo='vim -u ~/.vimrc.go'
+alias kp='~/bin/kp'
+
+# Combination of mkdir $ARG && cd $ARG
+mkcd () { mkdir --p -- "$1" && cd -P -- "$1" }
+# view files -- leveraging fzf
+vf () { ls -a | fzf | xargs -r -I % $EDITOR % ; }
+# se
+
 
 # general use
 alias ls='exa'                                                          # ls
 alias la='exa -a'                                                          # ls
+alias laf='exa -laF'                                                          # ls
 alias l='exa -lbF --git'                                                # list, size, type, git
 alias ll='exa -lbGF --git'                                             # long list
 alias llm='exa -lbGd --git --sort=modified'                            # long list, modified date sort
@@ -158,6 +176,12 @@ alias llm='exa -lbGd --git --sort=modified'                            # long li
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-# Vim settings
+# vim settings
 # bindkey -v
 export KEYTIMEOUT=1
+export EDITOR='nvim'
+export FZF_DEFAULT_OPTIONS='--layout=reverse --height 40%'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --follow'
+#export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
