@@ -21,6 +21,7 @@ Plug 'junegun/fzf.vim'
 Plug 'scrooloose/nerdtree' 
 Plug 'scrooloose/syntastic' 
 Plug 'airblade/vim-gitgutter'
+Plug 'Olical/conjure', { 'tag': 'v2.1.0', 'do': 'bin/compile' }
 call plug#end()
 
 filetype plugin indent on    " required 
@@ -103,6 +104,7 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>d :r!date<CR>
 nnoremap <Leader>\ :let @/ = ""<CR>
 nnoremap <Leader>gt :!go test ./... -coverprofile coverage.out<CR>
+nnoremap <Leader>gb :!go test -v --bench . --benchmem<CR>
 vnoremap <silent><leader>f <Esc>:FZF -q <C-R>=<SID>getVisualSelection()<CR><CR>
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
@@ -120,14 +122,19 @@ let g:netrw_winsize = 25
 " Golang syntax highlighting
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
 let g:go_highlight_function_parameters = 1
 let g:go_highlight_funciton_calls=1
 let g:go_highlight_types = 1
+let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_variable_assignments = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_generate_tags = 1
+let g:go_auto_sameids = 1
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
 
 
 " mhinz/vim-grepper

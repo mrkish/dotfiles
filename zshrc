@@ -1,7 +1,7 @@
 #export PATH=$HOME/bin:/usr/local/bin:$PATH
 #export PATH=$PATH:~/bin
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+# export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mrk/.oh-my-zsh"
@@ -118,11 +118,13 @@ alias bp='nvim ~/.zshrc'
 alias zp='nvim ~/.zshrc'
 alias vrc='nvim ~/.vimrc'
 alias trc='nvim ~/.tmux.conf'
+alias comprc='nvim ~/.config/compton.conf'
 alias nvrc='nvim ~/.config/nvim/init.vim'
 alias i3p='nvim ~/.config/i3/config'
 alias zsrc='source ~/.zshrc'
 alias gp='git pull'
 alias gt='go test ./... -coverprofile=coverage.out && go vet ./... '
+alias gb='go test -v --bench . --benchmem'
 alias goc='go tool cover -html=coverage.out'
 alias gs='git status'
 alias ga='git add'
@@ -149,6 +151,7 @@ alias tm='tmux new -A -s '
 alias ta='tmux attach -t'
 alias sbg='cp wallpaper.jpg ~/Pictures/ && feh --bg-scale ~/Pictures/wallpaper.jpg'
 alias bg='feh --bg-scale ~/Pictures/wallpaper.jpg'
+alias alrc='nvim ~/.config/alacritty/alacritty.yml'
 alias vimgo='vim -u ~/.vimrc.go'
 alias kp='~/bin/kp'
 

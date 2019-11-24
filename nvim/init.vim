@@ -9,6 +9,7 @@ Plug 'buoto/gotests-vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'mhinz/vim-grepper'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'Olical/conjure'
 
 call plug#end()
 

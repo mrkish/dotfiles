@@ -2,8 +2,8 @@
 for_window [class="^.*"] border pixel 0
 
 # Gaps
-gaps inner 2
-gaps outer 4
+gaps inner 3
+gaps outer 1
 smart_gaps on
 
 # Assign workspaces to screens
@@ -19,7 +19,8 @@ workspace 6 output eDP-1
 #  xprop | grep "CLASS"
 assign [class="Firefox"] 2
 assign [class="Visual Studio Code"] 3
-assign [class="Intellij Commnity Edition"] 2
+assign [class="Intellij Commnity Edition"] 3
+assign [class="Spotify"] 4
 
 set $black       #212121
 set $darkblack   #000000
@@ -55,7 +56,7 @@ font pango:Helvetica Neue, FontAwesome 11
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec alacritty
 
 # Start file explorer
 bindsym $mod+e exec dolphin
@@ -65,9 +66,6 @@ bindsym $mod+w exec brave-browser
 
 # Start incognito browser
 bindsym $mod+Control+w exec brave-browser --incognito
-
-# Start Firefox
-bindsym $mod+w exec firefox
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -225,9 +223,11 @@ for_window [title="Desktop — Plasma"] kill, floating enable, border none
 
 ## Avoid tiling popups, dropdown windows from plasma
 # for the first time, manually resize them, i3 will remember the setting for floating windows
+for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="Klipper"] floating enable, border none
 for_window [class="Kmix"] floating enable, border none
 for_window [class="krunner"] floating enable, border none
+for_window [class="Pidgin"] floating enable, border none
 for_window [class="Plasma"] floating enable, border none
 for_window [class="plasmashell"] floating enable
 for_window [class="plasmashell" window_type="notification"] floating enable, border none
