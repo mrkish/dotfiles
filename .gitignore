@@ -3,4 +3,16 @@
 /vim/autoload/*
 /vim/aut
 
+/oh-my-zsh/themes
+/oh-my-zsh/plugins
+/oh-my-zsh/lib
+/oh-my-zsh/tools
+/oh-my-zsh/templates
+/oh-my-zsh/log
+/oh-my-zsh/custom
+/oh-my-zsh/cache
+/oh-my-zsh/*.md
+/oh-my-zsh/*.txt
+/oh-my-zsh/oh-my-zsh.sh
+
 .netrwhist
