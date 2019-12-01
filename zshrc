@@ -111,25 +111,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+# General / shorties
 alias c='clear'
 alias x='exit'
 alias v='nvim'
-alias bp='nvim ~/.zshrc'
-alias dots='cd ~/dotfiles'
-alias zp='nvim ~/.zshrc'
-alias vrc='nvim ~/.vimrc'
-alias trc='nvim ~/.tmux.conf'
-alias comprc='nvim ~/.config/compton.conf'
-alias mpdrc='nvim ~/.config/mpd/mpd.conf'
-alias ncrc='nvim ~/.ncmpcpp/config'
-alias nvrc='nvim ~/.config/nvim/init.vim'
-alias i3p='nvim ~/.config/i3/config'
-alias zsrc='source ~/.zshrc'
-alias gp='git pull'
+
+# Go
 alias gt='go test ./... -coverprofile=coverage.out && go vet ./... '
 alias gb='go test -v --bench . --benchmem'
 alias goc='go tool cover -html=coverage.out'
+
+# Git
+alias gp='git pull'
 alias gs='git status'
 alias ga='git add'
 alias gc='git checkout $(git branch -l | fzf)'
@@ -140,23 +133,45 @@ alias gcm='git commit -m'
 alias glg='git log --graph'
 alias gbl='git branch --list'
 alias gpod='git push origin develop'
-alias pb='~/bin/pb.sh'
+
+# Navigation
 alias dl='cd ~/Downloads'
 alias cdc='cd ~/code'
 alias sendf='cd /mnt/F42C26542C2611E2/code/sendfriend'
 alias cdx='cd /mnt/F42C26542C2611E2/'
 alias cdcx='cd /mnt/F42C26542C2611E2/code'
-alias weather='curl wttr.in'
+
+# Vim
 alias notes='nvim note:note'
 alias note='nvim note:note'
 alias todo='nvim note:todo'
-alias weather='curl wttr.in'
+
+# TMUX
 alias tls='tmux list-sessions'
 alias tm='tmux new -A -s '
+alias tdo='tmux new -A -s todo'
 alias ta='tmux attach -t'
+alias tat='tmux attach -t todo'
+
+# Config/script editing aliases
+alias alrc='nvim ~/.config/alacritty/alacritty.yml'
+alias dots='cd ~/dotfiles'
+alias bp='nvim ~/.zshrc'
+alias zp='nvim ~/.zshrc'
+alias vrc='nvim ~/.vimrc'
+alias trc='nvim ~/.tmux.conf'
+alias comprc='nvim ~/.config/compton.conf'
+alias mpdrc='nvim ~/.config/mpd/mpd.conf'
+alias ncrc='nvim ~/.ncmpcpp/config'
+alias nvrc='nvim ~/.config/nvim/init.vim'
+alias i3p='nvim ~/.config/i3/config'
+alias zsrc='source ~/.zshrc'
+alias pb='~/bin/pb.sh'
+
+# Misc
+alias weather='curl wttr.in'
 alias sbg='cp wallpaper.jpg ~/Pictures/ && feh --bg-scale ~/Pictures/wallpaper.jpg'
 alias bg='feh --bg-scale ~/Pictures/wallpaper.jpg'
-alias alrc='nvim ~/.config/alacritty/alacritty.yml'
 alias vimgo='vim -u ~/.vimrc.go'
 alias kp='~/bin/kp'
 
@@ -165,7 +180,6 @@ mkcd () { mkdir --p -- "$1" && cd -P -- "$1" }
 # view files -- leveraging fzf
 vf () { ls -a | fzf | xargs -r -I % $EDITOR % ; }
 # se
-
 
 # general use
 alias ls='exa'                                                          # ls
