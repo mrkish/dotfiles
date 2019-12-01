@@ -110,6 +110,8 @@ nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 map <C-K> :bprev<CR>
 map <C-J> :bnext<CR>
+map <Leader>ss :split<Return><C-w>w
+map <Leader>sv :vsplit<Return><C-w>w
 
 
 let g:netrw_banner = 0

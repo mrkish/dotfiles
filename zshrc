@@ -1,7 +1,7 @@
 #export PATH=$HOME/bin:/usr/local/bin:$PATH
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go/bin
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$GOPATH:$GOROOT/bin:$PATH
 # export PATH=$PATH:$GOPATH:$GOROOT
 
 # Path to your oh-my-zsh installation.
@@ -116,10 +116,13 @@ alias c='clear'
 alias x='exit'
 alias v='nvim'
 alias bp='nvim ~/.zshrc'
+alias dots='cd ~/dotfiles'
 alias zp='nvim ~/.zshrc'
 alias vrc='nvim ~/.vimrc'
 alias trc='nvim ~/.tmux.conf'
 alias comprc='nvim ~/.config/compton.conf'
+alias mpdrc='nvim ~/.config/mpd/mpd.conf'
+alias ncrc='nvim ~/.ncmpcpp/config'
 alias nvrc='nvim ~/.config/nvim/init.vim'
 alias i3p='nvim ~/.config/i3/config'
 alias zsrc='source ~/.zshrc'
@@ -129,6 +132,7 @@ alias gb='go test -v --bench . --benchmem'
 alias goc='go tool cover -html=coverage.out'
 alias gs='git status'
 alias ga='git add'
+alias gc='git checkout $(git branch -l | fzf)'
 alias gaa='git add --all'
 alias gacm="git add --all && git commit -m"
 alias gph="git push origin HEAD"
