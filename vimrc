@@ -101,7 +101,9 @@ nnoremap <Leader>t :GoTest<CR>
 nnoremap <Leader>r :GoRun %<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>d :r!date<CR>
+nnoremap <silent><Leader>d :r!date<Esc> mo2o<Esc>`oj
+nnoremap <silent><Leader>y o- (DONE) 
+nnoremap <silent><Leader>t i- (DONE) 
 nnoremap <Leader>\ :let @/ = ""<CR>
 nnoremap <Leader>gt :!go test ./... -coverprofile coverage.out<CR>
 nnoremap <Leader>gb :!go test -v --bench . --benchmem<CR>
