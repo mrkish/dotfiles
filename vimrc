@@ -1,4 +1,3 @@
-set nocompatible
 filetype off                  " required
  
 "---------- Plugins -------------------------------------------------- 
@@ -98,21 +97,21 @@ endif
 nnoremap j gj
 nnoremap k gk
 let mapleader = ','
-nnoremap <Leader>p :Files<CR>
-nnoremap <Leader>l :Lines<CR>
-nnoremap <Leader>P :Commands<CR>
-nnoremap <Leader>t :GoTest<CR>
-nnoremap <Leader>r :GoRun %<CR>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <silent><Leader>d :r!date<Esc> mo2o<Esc>`oj
-nnoremap <silent><Leader>y o- (DONE) 
-nnoremap <silent><Leader>t i- (DONE) 
-nnoremap <Leader>\ :let @/ = ""<CR>
-nnoremap <Leader>gt :!go test ./... -coverprofile coverage.out<CR>
-nnoremap <Leader>gb :!go test -v --bench . --benchmem<CR>
+nmap <Leader>p :Files<CR>
+nmap <Leader>l :Lines<CR>
+nmap <Leader>P :Commands<CR>
+nmap <Leader>t :GoTest<CR>
+nmap <Leader>r :GoRun %<CR>
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+nmap <silent><Leader>d :r!date<Esc> mo2o<Esc>`oj
+nmap <silent><Leader>y o- (DONE) 
+nmap <silent><Leader>t i- (DONE) 
+nmap <Leader>\ :let @/ = ""<CR>
+nmap <Leader>gt :!go test ./... -coverprofile coverage.out<CR>
+nmap <Leader>gb :!go test -v --bench . --benchmem<CR>
+noremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 vnoremap <silent><leader>f <Esc>:FZF -q <C-R>=<SID>getVisualSelection()<CR><CR>
-nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 map <C-K> :bprev<CR>
 map <C-J> :bnext<CR>
