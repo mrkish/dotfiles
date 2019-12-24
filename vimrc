@@ -50,7 +50,6 @@ set number
 set relativenumber
 set nobackup
 set nowb
-set undodir=~/.vim/undodir
 set shiftwidth=2
 set expandtab
 set nowrap
@@ -88,6 +87,11 @@ let g:lightline = {
 " Automatically reload files when they're edited outside of current buffer
 set autoread
 auto FocusGained,BufEnter * :checktime
+
+if has('persistent_undo')
+  set undodir=~/.vim/undodir
+  set undofile
+endif
 
 
 "---------- Bindings  -------------------------------------------------- 
