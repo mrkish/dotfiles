@@ -137,9 +137,9 @@ alias gpod='git push origin develop'
 # Navigation
 alias dl='cd ~/Downloads'
 alias cdc='cd ~/code'
-alias sendf='cd /mnt/F42C26542C2611E2/code/sendfriend'
-alias cdx='cd /mnt/F42C26542C2611E2/'
-alias cdcx='cd /mnt/F42C26542C2611E2/code'
+alias sendf='cd /mnt/x/code/sendfriend'
+alias cdx='cd /mnt/x/'
+alias cdcx='cd /mnt/x/code'
 
 # Vim
 alias notes='nvim note:note'
