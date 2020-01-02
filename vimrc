@@ -1,27 +1,27 @@
 filetype off                  " required
  
 "---------- Plugins -------------------------------------------------- 
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/vim-plug'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
-Plug 'jiangmiao/auto-pairs'
-Plug 'dense-analysis/ale'
-Plug 'git://git.wincent.com/command-t'
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'} 
-Plug 'itchyny/lightline.vim' 
-Plug 'fatih/vim-go'
-Plug 'junegun/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
-Plug 'junegun/fzf.vim'
-Plug 'scrooloose/nerdtree' 
-Plug 'scrooloose/syntastic' 
-Plug 'airblade/vim-gitgutter'
-Plug 'Olical/conjure', { 'tag': 'v2.1.0', 'do': 'bin/compile' }
-call plug#end()
+" call plug#begin('~/.vim/plugged')
+" Plug 'junegunn/vim-plug'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-repeat'
+" Plug 'tpope/vim-commentary'
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-notes'
+" Plug 'jiangmiao/auto-pairs'
+" Plug 'dense-analysis/ale'
+" Plug 'git://git.wincent.com/command-t'
+" Plug 'rstacruz/sparkup', {'rtp': 'vim/'} 
+" Plug 'itchyny/lightline.vim' 
+" Plug 'fatih/vim-go'
+" Plug 'junegun/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
+" Plug 'junegun/fzf.vim'
+" Plug 'scrooloose/nerdtree' 
+" Plug 'scrooloose/syntastic' 
+" Plug 'airblade/vim-gitgutter'
+" Plug 'Olical/conjure', { 'tag': 'v2.1.0', 'do': 'bin/compile' }
+" call plug#end()
 
 filetype plugin indent on    " required 
 

@@ -5,11 +5,18 @@ source ~/.vimrc
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'buoto/gotests-vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'mhinz/vim-grepper'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'Olical/conjure'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 

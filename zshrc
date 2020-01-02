@@ -1,7 +1,7 @@
 #export PATH=$HOME/bin:/usr/local/bin:$PATH
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go/bin
-export PATH=$GOPATH:$GOROOT/bin:$PATH
+#export GOROOT=/usr/local/go
+#export GOPATH=$HOME/go/bin
+#export PATH=$GOPATH:$GOROOT/bin:$PATH
 # export PATH=$PATH:$GOPATH:$GOROOT
 
 # Path to your oh-my-zsh installation.
@@ -14,6 +14,7 @@ export ZSH="/home/mrk/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
+# ZSH_THEME="bira"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -77,10 +78,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
 git
 vi-mode
-chucknorris
 zsh-syntax-highlighting
-zsh-256color
-zsh-aliases-exa
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -115,6 +113,12 @@ source $ZSH/oh-my-zsh.sh
 alias c='clear'
 alias x='exit'
 alias v='nvim'
+
+# Arch
+alias xrc='nvim ~/.xinitrc'
+alias sxrc='nvim ~/.config/sxhkd/sxhkdrc'
+alias bprc='nvim ~/.config/bspwm/bspwmrc'
+alias termiterc='nvim ~/.config/termite/config'
 
 # Go
 alias gt='go test ./... -coverprofile=coverage.out && go vet ./... '
@@ -182,12 +186,12 @@ vf () { ls -a | fzf | xargs -r -I % $EDITOR % ; }
 # se
 
 # general use
-alias ls='exa'                                                          # ls
-alias la='exa -a'                                                          # ls
-alias laf='exa -laF'                                                          # ls
-alias l='exa -lbF --git'                                                # list, size, type, git
-alias ll='exa -lbGF --git'                                             # long list
-alias llm='exa -lbGd --git --sort=modified'                            # long list, modified date sort
+# alias ls='exa'                                                          # ls
+# alias la='exa -a'                                                          # ls
+# alias laf='exa -laF'                                                          # ls
+# alias l='exa -lbF --git'                                                # list, size, type, git
+# alias ll='exa -lbGF --git'                                             # long list
+# alias llm='exa -lbGd --git --sort=modified'                            # long list, modified date sort
 # alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
 # alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale' # all + extended list
 
