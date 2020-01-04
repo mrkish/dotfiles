@@ -1,3 +1,9 @@
+#
+# ~/.bash_profile
+#
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias bp='vim ~/.bash_profile'
@@ -15,8 +21,8 @@ alias gbl='git branch --list'
 alias gpod='git push origin develop'
 alias dl='cd ~/Downloads'
 alias cdc='cd ~/code'
-alias sendf='cd /mnt/F42C26542C2611E2/code/sendfriend'
-alias cdx='cd /mnt/F42C26542C2611E2/'
+alias sendf='cd /mnt/x/code/sendfriend'
+alias cdx='cd /mnt/x/'
 alias weather='curl wttr.in'
 alias notes='vim note:note'
 alias note='vim note:note'

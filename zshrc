@@ -1,3 +1,13 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+#
+source /home/mrk/.profile
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #export PATH=$HOME/bin:/usr/local/bin:$PATH
 #export GOROOT=/usr/local/go
 #export GOPATH=$HOME/go/bin
@@ -113,12 +123,20 @@ source $ZSH/oh-my-zsh.sh
 alias c='clear'
 alias x='exit'
 alias v='nvim'
+alias cdh='cd /mnt/h'
+alias cdm='cd /mnt/m'
+alias cdd='cd /mnt/d'
+alias cdf='cd /mnt/f'
 
 # Arch
 alias xrc='nvim ~/.xinitrc'
 alias sxrc='nvim ~/.config/sxhkd/sxhkdrc'
 alias bprc='nvim ~/.config/bspwm/bspwmrc'
 alias termiterc='nvim ~/.config/termite/config'
+alias polyrc='nvim ~/.config/polybar/config'
+alias kbrc='nvim ~/.xbindkeysrc'
+alias pbre='killall polybar; polybar main &'
+alias picrc='nvim ~/.config/picom/picom.conf'
 
 # Go
 alias gt='go test ./... -coverprofile=coverage.out && go vet ./... '

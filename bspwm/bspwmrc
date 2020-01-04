@@ -1,0 +1,38 @@
+#! /bin/sh
+
+sxhkd &
+$HOME/.config/polybar/launch.sh
+
+bspc monitor -d todo web chat 4 5 6 7 8 9 10
+
+bspc config border_width         1
+bspc config window_gap          4
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_follows_pointer true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+
+bpadding_top=0
+padding_bottom=0
+padding_left=0
+padding_right=0
+
+color_normal_border="#666666"
+color_active_border="#666666"
+color_focused_border="#cccccc"
+color_presel_feedback="#888888"
+
+setting_borderless_monocle='false'
+
+polybar_config="$CURRENT_THEME/polybar"
+polybar_bars=(top bottom)
+
+if xrandr | grep -q "HDMI-1 connected"; then
+  polybar_bars+=(external_bottom)
+fspc rule -a Screenkey manage=off
