@@ -51,7 +51,7 @@ set nobackup
 set nowb
 set shiftwidth=2
 set expandtab
-set nowrap
+set wrap
 set scrolloff=2
 set sidescrolloff=5
 set confirm

@@ -123,6 +123,7 @@ source $ZSH/oh-my-zsh.sh
 alias c='clear'
 alias x='exit'
 alias v='nvim'
+alias n='ncmpcpp'
 alias cdh='cd /mnt/h'
 alias cdm='cd /mnt/m'
 alias cdd='cd /mnt/d'
