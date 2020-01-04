@@ -10,26 +10,15 @@
 "pactl set-sink-mute @DEFAULT_SINK@ toggle"
    XF86AudioMute
 
+## Currently setup to toggle both ncmpcpp and Spotify
 # Play/Pause
-"mpc toggle"
+"playerctl play-pause; mpc toggle"
   XF86AudioPlay
 
 # Media Previous
-"mpc prev"
+"playerctl previous; mpc prev"
   XF86AudioPrev
 
 # Media Next
-"mpc next"
-  XF86AudioNext
-
-# Play/Pause
-"playerctl play-pause"
-  XF86AudioPlay
-
-# Media Previous
-"playerctl previous"
-  XF86AudioPrev
-
-# Media Next
-"playerctl next"
+"playerctl next; mpc next"
   XF86AudioNext
