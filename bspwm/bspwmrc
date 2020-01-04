@@ -1,9 +1,10 @@
 #! /bin/sh
 
 sxhkd &
+polybar main &
 $HOME/.config/polybar/launch.sh
 
-bspc monitor -d todo web chat 4 5 6 7 8 9 10
+bspc monitor -d todo web 3 4 5 6 7 8 chat music
 
 bspc config border_width         1
 bspc config window_gap          4
@@ -14,7 +15,7 @@ bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Pidgin desktop='^3' state=floating follow=on
+bspc rule -a Pidgin desktop='^9' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
