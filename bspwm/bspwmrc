@@ -1,7 +1,6 @@
 #! /bin/sh
 
 sxhkd &
-polybar main &
 $HOME/.config/polybar/launch.sh
 
 bspc monitor -d todo web 3 4 5 6 7 8 chat music
@@ -16,6 +15,7 @@ bspc config focus_follows_pointer true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Pidgin desktop='^9' state=floating follow=on
+bspc rule -a com.spotify.Client desktop='^10' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on

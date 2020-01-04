@@ -2,6 +2,7 @@
 /vim/plugged/*
 /vim/autoload/*
 /vim/aut
+/vim/undodir/*
 
 /oh-my-zsh/themes
 /oh-my-zsh/plugins
