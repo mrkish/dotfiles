@@ -4,19 +4,28 @@ source ~/.vimrc
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'buoto/gotests-vim'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'mhinz/vim-grepper'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'xolox/vim-notes'
-Plug 'xolox/vim-misc'
-Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'Olical/conjure'
+Plug 'airblade/vim-gitgutter'
+Plug 'buoto/gotests-vim'
+Plug 'dense-analysis/ale'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'itchyny/lightline.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
+" Plug 'junegunn/fzf.vim'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'mhinz/vim-grepper'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'scrooloose/nerdtree' 
+Plug 'scrooloose/syntastic' 
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 
 call plug#end()
 

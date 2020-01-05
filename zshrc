@@ -9,10 +9,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 #export PATH=$HOME/bin:/usr/local/bin:$PATH
-#export GOROOT=/usr/local/go
-#export GOPATH=$HOME/go/bin
-#export PATH=$GOPATH:$GOROOT/bin:$PATH
+# export GOROOT=/usr/bin/go
+# export GOPATH=$HOME/go/bin
+# export PATH=$GOPATH:$GOROOT/bin:$PATH
 # export PATH=$PATH:$GOPATH:$GOROOT
+export GO111MODULE=on
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mrk/.oh-my-zsh"
@@ -134,7 +135,7 @@ alias xrc='nvim ~/.xinitrc'
 alias sxrc='nvim ~/.config/sxhkd/sxhkdrc'
 alias bprc='nvim ~/.config/bspwm/bspwmrc'
 alias termiterc='nvim ~/.config/termite/config'
-alias polyrc='nvim ~/.config/polybar/config'
+alias polyrc='nvim ~/.config/polybar/config.ini'
 alias kbrc='nvim ~/.xbindkeysrc'
 alias pbre='killall polybar; polybar main &'
 alias picrc='nvim ~/.config/picom/picom.conf'
