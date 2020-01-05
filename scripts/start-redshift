@@ -1,0 +1,5 @@
+#!/bin/sh
+
+killall redshift
+redshift -x &
+redshift -O 4500 &
