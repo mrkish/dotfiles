@@ -129,6 +129,8 @@ alias cdh='cd /mnt/h'
 alias cdm='cd /mnt/m'
 alias cdd='cd /mnt/d'
 alias cdf='cd /mnt/f'
+alias rst='redshift -l 38.6270:90.1994'
+alias rstp='redshift -x'
 
 # Arch
 alias xrc='nvim ~/.xinitrc'
