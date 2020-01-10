@@ -9,11 +9,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 #export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export GOROOT=/usr/bin/go
-# export GOPATH=$HOME/go/bin
-# export PATH=$GOPATH:$GOROOT/bin:$PATH
+export GOROOT=/usr/lib/go
+export GOPATH=$HOME/go/bin
+export PATH=$GOPATH:$GOROOT/bin:$PATH
 # export PATH=$PATH:$GOPATH:$GOROOT
-export GO111MODULE=on
+# export GO111MODULE=on
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mrk/.oh-my-zsh"
