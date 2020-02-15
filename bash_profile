@@ -33,3 +33,5 @@ alias ta='tmux attach -t'
 alias bg='cp wallpaper.jpg ~/Pictures/ && feh --bg-scale ~/Pictures/wallpaper.jpg'
 
 force_color_prompt=yes
+
+export PATH="$HOME/.cargo/bin:$PATH"

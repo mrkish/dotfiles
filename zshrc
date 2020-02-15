@@ -142,6 +142,8 @@ alias polyrc='nvim ~/.config/polybar/config.ini'
 alias kbrc='nvim ~/.xbindkeysrc'
 alias pbre='killall polybar; polybar main &'
 alias picrc='nvim ~/.config/picom/picom.conf'
+alias S='sudo pacman -S'
+alias yS='yay -S'
 
 # Go
 alias gt='go test ./... -coverprofile=coverage.out && go vet ./... '

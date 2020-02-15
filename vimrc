@@ -96,7 +96,7 @@ endif
 "---------- Bindings  -------------------------------------------------- 
 nnoremap j gj
 nnoremap k gk
-let mapleader = ','
+let mapleader = "\<Space>"
 nmap <Leader>p :Files<CR>
 nmap <Leader>l :Lines<CR>
 nmap <Leader>P :Commands<CR>

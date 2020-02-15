@@ -24,6 +24,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'rust-lang/rust'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
