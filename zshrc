@@ -132,6 +132,7 @@ alias cdf='cd /mnt/f'
 # alias rdst='redshift -l 38.6270:90.1994 &'
 alias rdst='/home/mrk/.scripts/start-redshift'
 alias rdstp='redshift -x &'
+alias lg='ls -a | grep '
 
 # Arch
 alias xrc='nvim ~/.xinitrc'
@@ -211,14 +212,14 @@ vf () { ls -a | fzf | xargs -r -I % $EDITOR % ; }
 # se
 
 # general use
-# alias ls='exa'                                                          # ls
+alias ls='exa'                                                          # ls
 # alias la='exa -a'                                                          # ls
-# alias laf='exa -laF'                                                          # ls
-# alias l='exa -lbF --git'                                                # list, size, type, git
-# alias ll='exa -lbGF --git'                                             # long list
-# alias llm='exa -lbGd --git --sort=modified'                            # long list, modified date sort
-# alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
-# alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale' # all + extended list
+alias laf='exa -laF'                                                          # ls
+alias l='exa -lbF --git'                                                # list, size, type, git
+alias ll='exa -lbGF --git'                                             # long list
+alias llm='exa -lbGd --git --sort=modified'                            # long list, modified date sort
+alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
+alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale' # all + extended list
 
 # specialty views
 # alias lS='exa -1'                                                              # one column, just names

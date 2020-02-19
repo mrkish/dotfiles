@@ -36,6 +36,7 @@ set autoread
 set laststatus=2
 set ruler
 set wildmenu
+set wildmode=longest,list
 set cursorline
 set foldenable
 set foldlevelstart=10
@@ -182,16 +183,16 @@ augroup END
 "---------- Funcitons  -------------------------------------------------- 
 
 " Allows TAB to bring up an autocomplete window
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-     return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
+" function! InsertTabWrapper()
+"   let col = col('.') - 1
+"   if !col || getline('.')[col - 1] !~ '\k'
+"      return "\<tab>"
+"   else
+"     return "\<c-p>"
+"   endif
+" endfunction
+" inoremap <expr> <tab> InsertTabWrapper()
+" inoremap <s-tab> <c-n>
 
 " setting Vim-Note directory
 let g:notes_directories = ['~/Dropbox/Documents/Notes']
@@ -218,3 +219,8 @@ endfunction
 " set statusline+=%#warningmsg#
 " set statusline+=%#{SyntasticStatuslineFlag()}#
 " set statusline+=%*
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set number relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter * set number norelativenumber
+augroup END
