@@ -1,5 +1,7 @@
 #! /bin/sh
 
+transmission-qt &
+pidgin &
 sxhkd &
 $HOME/.config/polybar/launch.sh &
 
@@ -19,7 +21,8 @@ bspc config pointer_action2 resize_side
 bspc config pointer_action1 resize_corner
 bspc config pointer_action1 move
 
-bspc rule -a Pidgin desktop='^9' state=floating follow=on
+bspc rule -a Pidgin desktop='^9' state=floating
+bspc rule -a transmission-qt desktop='^8' state=floating
 bspc rule -a com.spotify.Client desktop='^10' state=floating follow=on
 bspc rule -a Screenkey manage=off
 

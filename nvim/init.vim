@@ -12,8 +12,8 @@ Plug 'dense-analysis/ale'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'mhinz/vim-grepper'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -30,22 +30,6 @@ Plug 'xolox/vim-notes'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 call plug#end()
-
-" Disable vim-airline when firenvim starts since vim-airline takes two lines.
-if !exists('g:started_by_firenvim')
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-endif
-
-if exists('g:started_by_firenvim') && g:started_by_firenvim
-    " general options
-    set laststatus=0 nonumber noruler noshowcmd
-
-    augroup firenvim
-        autocmd!
-        autocmd BufEnter *.txt setlocal filetype=markdown.pandoc
-    augroup END
-endif
 
 nnoremap j gj
 nnoremap k gk

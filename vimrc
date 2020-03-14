@@ -101,13 +101,13 @@ let mapleader = "\<Space>"
 nmap <Leader>p :Files<CR>
 nmap <Leader>l :Lines<CR>
 nmap <Leader>P :Commands<CR>
-nmap <Leader>t :GoTest<CR>
-nmap <Leader>r :GoRun %<CR>
+" nmap <Leader>t :GoTest<CR>
+" nmap <Leader>r :GoRun %<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <silent><Leader>d :r!date<Esc> mo2o<Esc>`oj
-nmap <silent><Leader>y o- (DONE) 
-nmap <silent><Leader>t i- (DONE) 
+" nmap <silent><Leader>y o- (DONE) 
+" nmap <silent><Leader>t i- (DONE) 
 nmap <Leader>\ :let @/ = ""<CR>
 nmap <Leader>gt :!go test ./... -coverprofile coverage.out<CR>
 nmap <Leader>gb :!go test -v --bench . --benchmem<CR>
@@ -119,6 +119,9 @@ map <C-J> :bnext<CR>
 map <Leader>ss :split<Return><C-w>w
 map <Leader>sv :vsplit<Return><C-w>w
 
+" easy scrolling + centering view
+map <S-j> 8jzz
+map <S-k> 8kzz
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3

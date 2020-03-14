@@ -233,7 +233,7 @@ alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale' # all + e
 export KEYTIMEOUT=1
 export EDITOR='nvim'
 export FZF_DEFAULT_OPTIONS='--layout=reverse --height 40%'
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --follow'
+export FZF_DEFAULT_COMMAND="rg --files --no-ignore --follow --preview 'head -100 {}'"
 #export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
