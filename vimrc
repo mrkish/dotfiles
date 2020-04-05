@@ -98,7 +98,7 @@ endif
 nnoremap j gj
 nnoremap k gk
 let mapleader = "\<Space>"
-nmap <Leader>p :Files<CR>
+nmap <Leader>k :Files<CR>
 nmap <Leader>l :Lines<CR>
 nmap <Leader>P :Commands<CR>
 " nmap <Leader>t :GoTest<CR>
@@ -106,8 +106,8 @@ nmap <Leader>P :Commands<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <silent><Leader>d :r!date<Esc> mo2o<Esc>`oj
-" nmap <silent><Leader>y o- (DONE) 
-" nmap <silent><Leader>t i- (DONE) 
+nmap <silent><Leader>u i- (DONE) 
+" nmap <silent><Leader>t o- (DONE) 
 nmap <Leader>\ :let @/ = ""<CR>
 nmap <Leader>gt :!go test ./... -coverprofile coverage.out<CR>
 nmap <Leader>gb :!go test -v --bench . --benchmem<CR>
@@ -143,7 +143,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_variable_assignments = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_generate_tags = 1
-let g:go_auto_sameids = 1
+let g:go_auto_sameids = 0
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
 

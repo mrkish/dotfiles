@@ -27,6 +27,7 @@ Plug 'tpope/vim-surround'
 Plug 'rust-lang/rust'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug '~/.vim/plugged/mq2-syntax'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 call plug#end()
@@ -122,3 +123,23 @@ let g:go_def_mapping_enabled = 0
 "   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 "   autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 " augroup END
+"
+
+"splitting panes and moving around in panes
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr())
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
+endfunction
+
+nnoremap <silent> <C-h> :call WinMove('h')<CR>
+nnoremap <silent> <C-j> :call WinMove('j')<CR>
+nnoremap <silent> <C-k> :call WinMove('k')<CR>
+nnoremap <silent> <C-l> :call WinMove('l')<CR>
