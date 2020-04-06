@@ -33,7 +33,6 @@ set noswapfile
 set history=999
 set showcmd
 set autoread
-set laststatus=2
 set ruler
 set wildmenu
 set wildmode=longest,list
@@ -123,12 +122,21 @@ map <Leader>sv :vsplit<Return><C-w>w
 map <S-j> 8jzz
 map <S-k> 8kzz
 
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowLineNumbers=1
+let NERDTreeRelativeNumbers=1
+let NERDTreeWinPos=1
+let NERDTreeAutoDeleteBuffer = 1
+
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-
 
 " Golang syntax highlighting
 let g:go_highlight_operators = 1
@@ -170,7 +178,7 @@ xmap <Leader>R
      \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
 map <S-n> :NERDTreeToggle<CR>
-nmap <Leader>n :NERDTreeToggle<Enter>
+nmap <silent><Leader>n :NERDTreeToggle<Enter>
 
 " Jump to last cursor position unless it's invalid or in an event handler
 augroup vimrcEx
@@ -215,6 +223,15 @@ function! s:getVisualSelection()
     return join(lines, "\n")
 endfunction
 
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
 "-----------------Scraps---------------------------------"
 " Using lightline for status bar -- saving this for later  

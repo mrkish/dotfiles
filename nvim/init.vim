@@ -4,18 +4,20 @@ source ~/.vimrc
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'NLKNguyen/papercolor-theme'
 Plug 'Olical/conjure'
 Plug 'airblade/vim-gitgutter'
 Plug 'buoto/gotests-vim'
 Plug 'dense-analysis/ale'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'mhinz/vim-grepper'
+Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'scrooloose/nerdtree' 
@@ -28,13 +30,15 @@ Plug 'rust-lang/rust'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug '~/.vim/plugged/mq2-syntax'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'morhetz/gruvbox'
+Plug 'ap/vim-buftabline'
+Plug 'frazrepo/vim-rainbow'
 
 call plug#end()
 
 nnoremap j gj
 nnoremap k gk
-colorscheme PaperColor
+colorscheme gruvbox
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -50,11 +54,12 @@ endif
 " colorscheme hybrid_reverse
 
 let g:enable_bold_font=1
+let g:rainbow_active = 1
 
 " if hidden is not set, TextEdit might fail.
 set hidden
 " Better display for messages
-set cmdheight=2
+set cmdheight=1
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
 " don't give |ins-completion-menu| messages.

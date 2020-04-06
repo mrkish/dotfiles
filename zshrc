@@ -154,7 +154,7 @@ alias goc='go tool cover -html=coverage.out'
 # Git
 alias gp='git pull'
 alias gs='git status'
-alias ga='git add'
+alias ga='git add --all'
 alias gc='git checkout $(git branch -l | fzf)'
 alias gaa='git add --all'
 alias gacm="git add --all && git commit -m"
