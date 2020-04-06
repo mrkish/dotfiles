@@ -1,28 +1,5 @@
 filetype off                  " required
  
-"---------- Plugins -------------------------------------------------- 
-" call plug#begin('~/.vim/plugged')
-" Plug 'junegunn/vim-plug'
-" Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-repeat'
-" Plug 'tpope/vim-commentary'
-" Plug 'xolox/vim-misc'
-" Plug 'xolox/vim-notes'
-" Plug 'jiangmiao/auto-pairs'
-" Plug 'dense-analysis/ale'
-" Plug 'git://git.wincent.com/command-t'
-" Plug 'rstacruz/sparkup', {'rtp': 'vim/'} 
-" Plug 'itchyny/lightline.vim' 
-" Plug 'fatih/vim-go'
-" Plug 'junegun/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
-" Plug 'junegun/fzf.vim'
-" Plug 'scrooloose/nerdtree' 
-" Plug 'scrooloose/syntastic' 
-" Plug 'airblade/vim-gitgutter'
-" Plug 'Olical/conjure', { 'tag': 'v2.1.0', 'do': 'bin/compile' }
-" call plug#end()
-
 filetype plugin indent on    " required 
 
 " Enable fzf
@@ -100,8 +77,8 @@ let mapleader = "\<Space>"
 nmap <Leader>k :Files<CR>
 nmap <Leader>l :Lines<CR>
 nmap <Leader>P :Commands<CR>
-" nmap <Leader>t :GoTest<CR>
-" nmap <Leader>r :GoRun %<CR>
+nmap <Leader>gt :GoTest<CR>
+nmap <Leader>gr :GoRun %<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <silent><Leader>d :r!date<Esc> mo2o<Esc>`oj
@@ -119,8 +96,8 @@ map <Leader>ss :split<Return><C-w>w
 map <Leader>sv :vsplit<Return><C-w>w
 
 " easy scrolling + centering view
-map <S-j> 8jzz
-map <S-k> 8kzz
+" map <S-j> 8jzz
+" map <S-k> 8kzz
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1

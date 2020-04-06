@@ -33,6 +33,7 @@ Plug '~/.vim/plugged/mq2-syntax'
 Plug 'morhetz/gruvbox'
 Plug 'ap/vim-buftabline'
 Plug 'frazrepo/vim-rainbow'
+Plug 'shinchu/lightline-gruvbox.vim'
 
 call plug#end()
 
@@ -55,6 +56,8 @@ endif
 
 let g:enable_bold_font=1
 let g:rainbow_active = 1
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
 
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -66,6 +69,7 @@ set updatetime=300
 set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
+set splitright
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
