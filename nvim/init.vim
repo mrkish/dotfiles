@@ -34,12 +34,22 @@ Plug 'morhetz/gruvbox'
 Plug 'ap/vim-buftabline'
 Plug 'frazrepo/vim-rainbow'
 Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'chuling/vim-equinusocio-material'
 
 call plug#end()
 
 nnoremap j gj
 nnoremap k gk
+
+set termguicolors
+" let g:equinusocio_material_darker=1
+" colorscheme equinusocio_material
 colorscheme gruvbox
+" let g:lightline = {
+"   \ 'colorscheme': 'equinusocio_material',
+"   \ }
+
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -57,6 +67,7 @@ endif
 let g:enable_bold_font=1
 let g:rainbow_active = 1
 let g:lightline = {}
+" let g:lightline.colorscheme = 'equinusocio_material'
 let g:lightline.colorscheme = 'gruvbox'
 
 " if hidden is not set, TextEdit might fail.
@@ -68,8 +79,13 @@ set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 " always show signcolumns
-set signcolumn=yes
+set signcolumn=no
 set splitright
+
+" setting up vim-which-key
+set timeout
+set timeoutlen=800
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -117,9 +133,9 @@ nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
@@ -152,3 +168,13 @@ nnoremap <silent> <C-h> :call WinMove('h')<CR>
 nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction

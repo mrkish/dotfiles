@@ -81,7 +81,7 @@ nmap <Leader>gt :GoTest<CR>
 nmap <Leader>gr :GoRun %<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
-nmap <silent><Leader>d :r!date<Esc> mo2o<Esc>`oj
+nmap <silent><Leader>d :r!date<Esc>o
 nmap <silent><Leader>u i- (DONE) 
 " nmap <silent><Leader>t o- (DONE) 
 nmap <Leader>\ :let @/ = ""<CR>
