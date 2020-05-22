@@ -36,6 +36,7 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'chuling/vim-equinusocio-material'
+Plug 'unblevable/quick-scope'
 
 call plug#end()
 
@@ -64,6 +65,16 @@ endif
 " set background=dark
 " colorscheme hybrid_reverse
 
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+augroup END
+
 let g:enable_bold_font=1
 let g:rainbow_active = 1
 let g:lightline = {}
@@ -81,6 +92,8 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=no
 set splitright
+set splitbelow
+set clipboard=unnamedplus
 
 " setting up vim-which-key
 set timeout

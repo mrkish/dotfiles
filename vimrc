@@ -22,14 +22,16 @@ set noerrorbells
 set visualbell
 set mouse=a
 set background=dark
-set number
-set relativenumber
+set number relativenumber
+set nu rnu
+set hls is
 set nobackup
 set nowb
 set shiftwidth=2
 set expandtab
 set wrap
 set scrolloff=2
+
 set sidescrolloff=5
 set confirm
 set lazyredraw
@@ -43,21 +45,31 @@ set noshowmode
 " Searching
 set hlsearch
 set incsearch
+set magic
 set ignorecase
 set smartcase
 set ai
 set si
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
 " Adds the current Git branch to the lightline
-let g:lightline = { 
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
+" let g:lightline = { 
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ],
+"       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+"       \ },
+"       \ 'component_function': {
+"       \   'gitbranch': 'fugitive#head'
+"       \ },
+"       \ }
+" let g:lightline = {
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ],
+"       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+"       \ },
+"       \ 'component_function': {
+"       \   'gitbranch': 'gitbranch#name'
+"       \ },
+"       \ }
 
 
 " Automatically reload files when they're edited outside of current buffer
@@ -74,7 +86,8 @@ endif
 nnoremap j gj
 nnoremap k gk
 let mapleader = "\<Space>"
-nmap <Leader>k :Files<CR>
+nmap <Leader>k :GFiles<CR>
+nmap <Leader>j :Files<CR>
 nmap <Leader>l :Lines<CR>
 nmap <Leader>P :Commands<CR>
 nmap <Leader>gt :GoTest<CR>
@@ -200,15 +213,6 @@ function! s:getVisualSelection()
     return join(lines, "\n")
 endfunction
 
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ },
-      \ }
 
 "-----------------Scraps---------------------------------"
 " Using lightline for status bar -- saving this for later  
