@@ -22,7 +22,7 @@ set noerrorbells
 set visualbell
 set mouse=a
 set background=dark
-set number relativenumber
+set number
 set nu rnu
 set hls is
 set nobackup

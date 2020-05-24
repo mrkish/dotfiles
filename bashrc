@@ -177,4 +177,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
+source ~/alias.sh
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
