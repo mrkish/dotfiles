@@ -1,3 +1,7 @@
+# Toggle between workman and US keyboard layouts
+alias usla='setxkbmap us; xset -r 66'
+alias wla='setxkbmap -v workman && xset r 66'
+
 # General / shorties
 alias c='clear'
 alias x='exit'
@@ -13,6 +17,7 @@ alias rdstp='redshift -x &'
 alias lg='ls -a | grep '
 
 # Arch
+alias aliasrc='nvim ~/dotfiles/alias.sh'
 alias xrc='nvim ~/.xinitrc'
 alias sxrc='nvim ~/.config/sxhkd/sxhkdrc'
 alias bprc='nvim ~/.config/bspwm/bspwmrc'
@@ -98,3 +103,6 @@ alias ll='exa -lbGF --git'                                             # long li
 alias llm='exa -lbGd --git --sort=modified'                            # long list, modified date sort
 alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
 alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale' # all + extended list
+
+# KUBECTL
+alias k='kubectl '

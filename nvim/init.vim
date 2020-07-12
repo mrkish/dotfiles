@@ -3,67 +3,72 @@ let &packpath=&runtimepath
 source ~/.vimrc
 
 call plug#begin('~/.vim/plugged')
-
-" Plug 'NLKNguyen/papercolor-theme'
-Plug 'Olical/conjure'
-Plug 'airblade/vim-gitgutter'
-Plug 'buoto/gotests-vim'
-Plug 'dense-analysis/ale'
+"
+" ----- Language support -----
+"
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'itchyny/lightline.vim'
+Plug 'rust-lang/rust'
+Plug 'Olical/conjure'
+Plug 'buoto/gotests-vim'
+Plug '~/.vim/plugged/mq2-syntax'
+" Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+" Plug 'dense-analysis/ale'
+"
+" ----- Git -----
+"
+Plug 'tpope/vim-fugitive'
 Plug 'itchyny/vim-gitbranch'
+Plug 'airblade/vim-gitgutter'
+"
+" ----- Usability / Misc
+"
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'ap/vim-buftabline'
+Plug 'frazrepo/vim-rainbow'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'unblevable/quick-scope'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'mhinz/vim-grepper'
-Plug 'mhinz/vim-startify'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'scrooloose/nerdtree' 
 Plug 'scrooloose/syntastic' 
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'rust-lang/rust'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
-Plug '~/.vim/plugged/mq2-syntax'
-Plug 'morhetz/gruvbox'
-Plug 'ap/vim-buftabline'
-Plug 'frazrepo/vim-rainbow'
-Plug 'shinchu/lightline-gruvbox.vim'
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-Plug 'chuling/vim-equinusocio-material'
-Plug 'unblevable/quick-scope'
+"
+" ----- Themes / Looks / Vanity -----
+"
+Plug 'mhinz/vim-startify'
+Plug 'itchyny/lightline.vim'
+Plug 'chuling/pure-material.vim'
+" Plug 'morhetz/gruvbox'
+" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'chuling/vim-equinusocio-material'
+" Plug 'kristijanhusak/vim-hybrid-material'
+" Plug 'shinchu/lightline-gruvbox.vim'
 
 call plug#end()
 
 nnoremap j gj
 nnoremap k gk
 
+syntax on
 set termguicolors
-" let g:equinusocio_material_darker=1
-" colorscheme equinusocio_material
-colorscheme gruvbox
-" let g:lightline = {
-"   \ 'colorscheme': 'equinusocio_material',
-"   \ }
+
+" Theme + LightLine
+colorscheme pure_material
+let g:lightline = {
+  \ 'colorscheme': 'pure_material',
+  \ }
+" let g:lightline.colorscheme = 'gruvbox'
 
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
-
-"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-" if (has("termguicolors"))
-"   set termguicolors
-" endif
-" set background=dark
-" colorscheme hybrid_reverse
 
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
@@ -77,9 +82,6 @@ augroup END
 
 let g:enable_bold_font=1
 let g:rainbow_active = 1
-let g:lightline = {}
-" let g:lightline.colorscheme = 'equinusocio_material'
-let g:lightline.colorscheme = 'gruvbox'
 
 " if hidden is not set, TextEdit might fail.
 set hidden

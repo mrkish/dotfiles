@@ -87,7 +87,7 @@ nnoremap j gj
 nnoremap k gk
 let mapleader = "\<Space>"
 nmap <Leader>k :GFiles<CR>
-nmap <Leader>j :Files<CR>
+nmap <Leader>; :Files<CR>
 nmap <Leader>l :Lines<CR>
 nmap <Leader>P :Commands<CR>
 nmap <Leader>gt :GoTest<CR>
