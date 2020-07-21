@@ -60,7 +60,7 @@ set termguicolors
 
 " Theme + LightLine
 " colorscheme pure_material
-colorscheme papercolor-theme
+colorscheme PaperColor
 " let g:lightline = {
 "   \ 'colorscheme': 'pure_material',
 "   \ }
