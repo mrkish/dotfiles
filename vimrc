@@ -85,7 +85,7 @@ endif
 "---------- Bindings  -------------------------------------------------- 
 nnoremap j gj
 nnoremap k gk
-let mapleader = "\<Space>"
+let mapleader = " "
 nmap <Leader>k :GFiles<CR>
 nmap <Leader>; :Files<CR>
 nmap <Leader>l :Lines<CR>
@@ -113,10 +113,10 @@ map <Leader>sv :vsplit<Return><C-w>w
 " map <S-k> 8kzz
 
 " NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowLineNumbers=1
 let NERDTreeRelativeNumbers=1
 let NERDTreeWinPos=1

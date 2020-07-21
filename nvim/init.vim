@@ -43,9 +43,9 @@ Plug 'xolox/vim-notes'
 "
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
-Plug 'chuling/pure-material.vim'
+" Plug 'chuling/pure-material.vim'
 " Plug 'morhetz/gruvbox'
-" Plug 'NLKNguyen/papercolor-theme'
+Plug 'NLKNguyen/papercolor-theme'
 " Plug 'chuling/vim-equinusocio-material'
 " Plug 'kristijanhusak/vim-hybrid-material'
 " Plug 'shinchu/lightline-gruvbox.vim'
@@ -59,10 +59,11 @@ syntax on
 set termguicolors
 
 " Theme + LightLine
-colorscheme pure_material
-let g:lightline = {
-  \ 'colorscheme': 'pure_material',
-  \ }
+" colorscheme pure_material
+colorscheme papercolor-theme
+" let g:lightline = {
+"   \ 'colorscheme': 'pure_material',
+"   \ }
 " let g:lightline.colorscheme = 'gruvbox'
 
 if (has("nvim"))
