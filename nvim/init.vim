@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 "
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'buoto/gotests-vim',
 Plug 'rust-lang/rust'
 Plug 'Olical/conjure'
 Plug 'buoto/gotests-vim'
@@ -38,6 +39,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic' 
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'vimwiki/vimwiki'
 "
 " ----- Themes / Looks / Vanity -----
 "

@@ -16,6 +16,10 @@ alias rdst='/home/mrk/.scripts/start-redshift'
 alias rdstp='redshift -x &'
 alias lg='ls -a | grep '
 
+# fasd
+alias f='fasd -f '
+alias m='fasd -m '
+
 # Arch
 alias aliasrc='nvim ~/dotfiles/alias.sh'
 alias xrc='nvim ~/.xinitrc'
