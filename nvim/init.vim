@@ -40,6 +40,8 @@ Plug 'scrooloose/syntastic'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'vimwiki/vimwiki'
+Plug 'michal-h21/vim-zettel'
+" Plug 'michal-h21/vimwiki-sync'
 "
 " ----- Themes / Looks / Vanity -----
 "
@@ -104,6 +106,8 @@ set clipboard=unnamedplus
 set timeout
 set timeoutlen=800
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+" unmap <Leader>ww
+nnoremap <Leader>W  <Plug>VimwikiIndex
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.

@@ -16,9 +16,8 @@ alias rdst='/home/mrk/.scripts/start-redshift'
 alias rdstp='redshift -x &'
 alias lg='ls -a | grep '
 
-# fasd
-alias f='fasd -f '
-alias m='fasd -m '
+# Vim Wiki
+alias vw='nvim ~/vimwiki/index.wiki'
 
 # Arch
 alias aliasrc='nvim ~/dotfiles/alias.sh'
