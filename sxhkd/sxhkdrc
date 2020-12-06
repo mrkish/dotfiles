@@ -126,3 +126,11 @@ super + ctrl + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Floating App Windows
+super + alt + h
+        bspc rule -a St -o state=floating focus=on rectangle=1500x1000+1200+400 sticky=on ; st -e htop
+
+# Floating Terminal
+super + alt + t
+        bspc rule -a St -o state=floating focus=on rectangle=1500x1000+1200+400 sticky=on ; st

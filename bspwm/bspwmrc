@@ -1,7 +1,5 @@
 #! /bin/sh
 
-transmission-qt &
-pidgin &
 sxhkd &
 $HOME/.config/polybar/launch.sh &
 
@@ -12,26 +10,7 @@ $HOME/.config/polybar/launch.sh &
 
 # bspc monitor DisplayPort-0 -n 0 -d todo web 3 4 5 6
 # bspc monitor DVI-I-1 -n 1 -d term web 3 4 5 6 7 8 chat music
- bspc monitor DisplayPort-0 -n 1 -d term web 3 4 5 6 7 8 chat music
-
-bspc config border_width         1
-bspc config window_gap          4
-
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
-bspc config single_monocle       false
-bspc config focus_follows_pointer false
-
-bspc config pointer_modifier mod1
-bspc config pointer_action2 resize_side
-bspc config pointer_action1 resize_corner
-bspc config pointer_action1 move
-
-bspc rule -a Pidgin desktop='^9' state=floating
-bspc rule -a transmission-qt desktop='^8' state=floating
-bspc rule -a com.spotify.Client desktop='^10' state=floating follow=on
-bspc rule -a Screenkey manage=off
+bspc monitor DisplayPort-0 -n 1 -d term web 3 4 5 6 7 8 9 info
 
 bpadding_top=0
 padding_bottom=0
@@ -45,9 +24,40 @@ color_presel_feedback="#888888"
 
 setting_borderless_monocle='false'
 
-# polybar_config="$CURRENT_THEME/polybar"
 polybar_bars=(main)
 
-# if xrandr | grep -q "HDMI-1 connected"; then
-#   polybar_bars+=(main)
-# fi
+bspc config border_width         1
+bspc config window_gap          8
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config single_monocle       false
+bspc config focus_follows_pointer false
+
+bspc config pointer_modifier mod1
+bspc config pointer_action2 resize_side
+bspc config pointer_action1 resize_corner
+bspc config pointer_action1 move
+
+bspc rule -a Pidgin:* desktop='^10' state=floating follow=off 
+bspc rule -a transmission-qt desktop='^10' split_ratio="0.33" follow=off 
+bspc rule -a transmission desktop='^10' split_ratio="0.33" follow=off 
+bspc rule -a St desktop='^10' follow=off 
+bspc rule -a firefox desktop='^2' follow=off
+bspc rule -a Screenkey manage=off
+
+# Auto-start programs
+pidgin &
+transmission-qt &
+sleep 1.00
+st -e ncmpcpp &
+st -e htop &
+sleep 3.00
+firefox &
+sleep 10.00
+bspc desktop -f ^2
+
+# Clear startup rules
+bspc rule -r St
+bspc rule -r firefox
