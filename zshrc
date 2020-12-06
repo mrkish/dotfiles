@@ -12,6 +12,7 @@ fi
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/go/bin
 export PATH=$GOPATH:$GOROOT/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 # export PATH=$PATH:$GOPATH:$GOROOT
 # export GO111MODULE=on
 
@@ -87,10 +88,11 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-git
-vi-mode
-zsh-syntax-highlighting
-zsh-autosuggestions
+  git
+  vi-mode
+  zsh-history-substring-search
+  zsh-syntax-highlighting
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh

@@ -11,7 +11,8 @@ $HOME/.config/polybar/launch.sh &
 # fi
 
 # bspc monitor DisplayPort-0 -n 0 -d todo web 3 4 5 6
-bspc monitor DVI-D-0 -n 1 -d term web 3 4 5 6 7 8 chat music
+# bspc monitor DVI-I-1 -n 1 -d term web 3 4 5 6 7 8 chat music
+ bspc monitor DisplayPort-0 -n 1 -d term web 3 4 5 6 7 8 chat music
 
 bspc config border_width         1
 bspc config window_gap          4

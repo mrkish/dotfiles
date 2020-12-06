@@ -21,6 +21,7 @@ Plug '~/.vim/plugged/mq2-syntax'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/vim-gitbranch'
 Plug 'airblade/vim-gitgutter'
+Plug 'stsewd/fzf-checkout.vim'
 "
 " ----- Usability / Misc
 "
@@ -32,7 +33,7 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'unblevable/quick-scope'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf.vim', { 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'scrooloose/nerdtree' 
@@ -49,12 +50,19 @@ Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 " Plug 'chuling/pure-material.vim'
 " Plug 'morhetz/gruvbox'
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'gruvbox-community/gruvbox'
+" Plug 'NLKNguyen/papercolor-theme'
 " Plug 'chuling/vim-equinusocio-material'
 " Plug 'kristijanhusak/vim-hybrid-material'
 " Plug 'shinchu/lightline-gruvbox.vim'
 
 call plug#end()
+
+" fzf
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+nnoremap <leader>gc :GBranches<CR>
+
 
 nnoremap j gj
 nnoremap k gk
@@ -64,7 +72,9 @@ set termguicolors
 
 " Theme + LightLine
 " colorscheme pure_material
-colorscheme PaperColor
+colorscheme gruvbox
+set background=dark
+" colorscheme PaperColor
 " let g:lightline = {
 "   \ 'colorscheme': 'pure_material',
 "   \ }
