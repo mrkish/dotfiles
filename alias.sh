@@ -20,7 +20,7 @@ alias lg='ls -a | grep '
 alias vw='nvim ~/vimwiki/index.wiki'
 
 # Arch
-alias aliasrc='nvim ~/dotfiles/alias.sh'
+alias arc='nvim ~/dotfiles/alias.sh'
 alias xrc='nvim ~/.xinitrc'
 alias sxrc='nvim ~/.config/sxhkd/sxhkdrc'
 alias bprc='nvim ~/.config/bspwm/bspwmrc'
