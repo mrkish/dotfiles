@@ -53,9 +53,8 @@ transmission-qt &
 sleep 1.00
 st -e ncmpcpp &
 st -e htop &
-sleep 3.00
 firefox &
-sleep 10.00
+sleep 5.00
 bspc desktop -f ^2
 
 # Clear startup rules
