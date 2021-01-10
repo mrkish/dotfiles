@@ -3,12 +3,14 @@ set synmaxcol=1000
 set nocompatible
 set modelines=0
 
+" source ~/Downloads/generate.vim
+
 filetype off                  " required
-filetype plugin indent on    " required 
 
 call plug#begin('~/.vim/plugged')
 " ----- Language support -----
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'buoto/gotests-vim',
 Plug 'rust-lang/rust'
@@ -20,6 +22,7 @@ Plug '~/.vim/plugged/mq2-syntax'
 "
 " ----- Git -----
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'itchyny/vim-gitbranch'
 Plug 'airblade/vim-gitgutter'
 Plug 'stsewd/fzf-checkout.vim'
@@ -55,6 +58,8 @@ Plug 'gruvbox-community/gruvbox'
 " Plug 'kristijanhusak/vim-hybrid-material'
 " Plug 'shinchu/lightline-gruvbox.vim'
 call plug#end()
+
+filetype plugin indent on    " required 
 
 " Enable fzf
 set rtp+=~/.fzf

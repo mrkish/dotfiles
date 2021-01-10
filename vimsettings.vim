@@ -1,8 +1,18 @@
-set nocompatible
+"" Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
 
-filetype off                  " required
- 
-filetype plugin indent on    " required 
+"" Fix backspace indent
+set backspace=indent,eol,start
+
+"" Tabs. May be overridden by autocmd rules
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
+set expandtab
+
+set hidden
 
 " Automatically reload files when they're edited outside of current buffer
 set autoread
@@ -22,10 +32,17 @@ colorscheme gruvbox
 set background=dark
 set termguicolors
 
+" set noswapfile
+" Instead of ^^, going to try out this: 
+set directory=$HOME/.vim/swp
+set nobackup
+set nowb
+
+set title
+
 let g:enable_bold_font=1
 let g:rainbow_active = 1
 
-set hidden
 " Better display for messages
 set cmdheight=1
 " Smaller updatetime for CursorHold & CursorHoldI
@@ -39,7 +56,6 @@ set splitbelow
 set clipboard=unnamedplus
 
 set completeopt=longest,menuone
-set noswapfile
 set history=999
 set showcmd
 set autoread
@@ -59,14 +75,15 @@ set background=dark
 set number
 set nu rnu
 set hls is
-set nobackup
-set nowb
 set shiftwidth=2
 set expandtab
 set wrap
-set scrolloff=2
+set linebreak
 
 set sidescrolloff=5
+set scrolloff=3
+
+" Performance
 set confirm
 set lazyredraw
 set ttyfast
@@ -74,14 +91,27 @@ set nomodeline
 " colorscheme molokai // Currently being set in nvim
 set noshowmode
 
+
 " Searching
 set hlsearch
 set incsearch
-set magic
 set ignorecase
 set smartcase
+set magic
 set ai
 set si
+
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
 
 
