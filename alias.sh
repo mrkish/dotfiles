@@ -38,6 +38,7 @@ alias gb='go test -v --bench . --benchmem'
 alias goc='go tool cover -html=coverage.out'
 
 # Git
+alias lg='lazygit'
 alias gp='git pull'
 alias gs='git status'
 alias ga='git add --all'
