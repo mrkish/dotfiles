@@ -123,14 +123,18 @@ nmap <Leader>l :Lines<CR>
 nmap <Leader>P :Commands<CR>
 nmap <Leader>gt :GoTest<CR>
 nmap <Leader>gr :GoRun %<CR>
+nmap <Leader>gv :GoVet<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <silent><Leader>d :r!date<Esc>o
 nmap <silent><Leader>u i- (DONE) 
 " nmap <silent><Leader>t o- (DONE) 
 nmap <Leader>\ :let @/ = ""<CR>
-nmap <Leader>gt :!go test ./... -coverprofile coverage.out<CR>
+nmap <Leader>gt :GoTest<CR>
+nmap <Leader>gtf :GoTestFunc<CR>
 nmap <Leader>gb :!go test -v --bench . --benchmem<CR>
+" nmap <Leader>gt :!go test ./... -coverprofile coverage.out<CR>
+" nmap <Leader>gb :!go test -v --bench . --benchmem<CR>
 noremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 vnoremap <silent><leader>f <Esc>:FZF -q <C-R>=<SID>getVisualSelection()<CR><CR>
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
@@ -153,7 +157,7 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gj <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use U to show documentation in preview window
@@ -237,6 +241,8 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_variable_assignments = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_generate_tags = 1
-let g:go_auto_sameids = 0
 let g:go_fmt_command = "goimports"
+let g:go_def_mode = "gopls"
+let g:go_info_mode = "gopls"
 let g:go_auto_type_info = 1
+let g:go_auto_sameids = 0

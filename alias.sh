@@ -33,13 +33,17 @@ alias S='sudo pacman -S'
 alias yS='yay -S'
 
 # Go
+alias gv='go vet ./...'
 alias gt='go test ./... -coverprofile=coverage.out && go vet ./... '
 alias gb='go test -v --bench . --benchmem'
 alias goc='go tool cover -html=coverage.out'
 
+# Projects
+alias mg='moongo '
+
 # Git
 alias lg='lazygit'
-alias gp='git pull'
+alias gp='git pushw'
 alias gs='git status'
 alias ga='git add --all'
 alias gc='git checkout $(git branch -l | fzf)'
@@ -77,6 +81,8 @@ alias bp='nvim ~/.zshrc'
 alias zp='nvim ~/.zshrc'
 alias ap='nvim ~/alias.sh'
 alias vrc='nvim ~/.vimrc'
+alias vsrc='nvim ~/.vim/settings.vim'
+alias vfrc='nvim ~/.vim/func.vim'
 alias trc='nvim ~/.tmux.conf'
 alias comprc='nvim ~/.config/compton.conf'
 alias mpdrc='nvim ~/.config/mpd/mpd.conf'

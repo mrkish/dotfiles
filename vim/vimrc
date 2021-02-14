@@ -15,7 +15,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'buoto/gotests-vim',
 Plug 'rust-lang/rust'
 Plug '~/.vim/plugged/mq2-syntax'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " Plug 'Olical/conjure'
 " Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 " Plug 'dense-analysis/ale'
@@ -45,9 +45,8 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'vimwiki/vimwiki'
 Plug 'michal-h21/vim-zettel'
-" Plug 'kevinhwang91/nvim-bqf'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'michal-h21/vimwiki-sync'
+Plug 'kevinhwang91/nvim-bqf'
+Plug 'michal-h21/vimwiki-sync'
 "
 " ----- Themes / Looks / Vanity -----
 Plug 'mhinz/vim-startify'
@@ -76,6 +75,44 @@ nnoremap <leader>gc :GBranch<CR>
 
 " barow modules
 let g:barow = {
+      \  'modes': {
+      \    'normal': [' ', 'BarowNormal'],
+      \    'insert': ['i', 'BarowInsert'],
+      \    'replace': ['r', 'BarowReplace'],
+      \    'visual': ['v', 'BarowVisual'],
+      \    'v-line': ['l', 'BarowVisual'],
+      \    'v-block': ['b', 'BarowVisual'],
+      \    'select': ['s', 'BarowVisual'],
+      \    'command': ['c', 'BarowCommand'],
+      \    'shell-ex': ['!', 'BarowCommand'],
+      \    'terminal': ['t', 'BarowTerminal'],
+      \    'prompt': ['p', 'BarowNormal'],
+      \    'inactive': [' ', 'BarowModeNC']
+      \  },
+      \  'statusline': ['Barow', 'BarowNC'],
+      \  'tabline': ['BarowTab', 'BarowTabSel', 'BarowTabFill'],
+      \  'buf_name': {
+      \    'empty': '',
+      \    'hi': ['BarowBufName', 'BarowBufNameNC']
+      \  },
+      \  'read_only': {
+      \    'value': 'ro',
+      \    'hi': ['BarowRO', 'BarowRONC']
+      \  },
+      \  'buf_changed': {
+      \    'value': '*',
+      \    'hi': ['BarowChange', 'BarowChangeNC']
+      \  },
+      \  'tab_changed': {
+      \    'value': '*',
+      \    'hi': ['BarowTChange', 'BarowTChangeNC']
+      \  },
+      \  'line_percent': {
+      \    'hi': ['BarowLPercent', 'BarowLPercentNC']
+      \  },
+      \  'row_col': {
+      \    'hi': ['BarowRowCol', 'BarowRowColNC']
+      \  },
       \  'modules': [
       \    [ 'barowGit#branch', 'BarowHint' ],
       \    [ 'barowLSP#error', 'BarowError' ],
@@ -96,7 +133,18 @@ xmap gr <plug>(GrepperOperator)
 let g:notes_directories = ['~/Dropbox/Documents/Notes']
 
 " Load keymappings
-source ~/.vimsettings.vim
+source ~/.vim/settings.vim
 
 " Load functions
-source ~/.vimfunc.vim
+source ~/.vim/func.vim
+
+" TreeSitter config
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF

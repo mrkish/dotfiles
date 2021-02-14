@@ -12,6 +12,7 @@ fi
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/go/bin
 export PATH=$GOPATH:$GOROOT/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 # export PATH=$PATH:$GOPATH:$GOROOT
 # export GO111MODULE=on
