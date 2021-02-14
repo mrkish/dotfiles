@@ -43,7 +43,7 @@ alias mg='moongo '
 
 # Git
 alias lg='lazygit'
-alias gp='git pushw'
+alias gp='git push'
 alias gs='git status'
 alias ga='git add --all'
 alias gc='git checkout $(git branch -l | fzf)'
