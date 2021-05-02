@@ -11,6 +11,7 @@ $HOME/.config/polybar/launch.sh &
 # bspc monitor DisplayPort-0 -n 0 -d todo web 3 4 5 6
 # bspc monitor DVI-I-1 -n 1 -d term web 3 4 5 6 7 8 chat music
 bspc monitor DisplayPort-0 -n 1 -d term web 3 4 5 6 7 8 9 info
+bspc monitor HDMI-A-0 -n 1 -d term web 3 4 5 6 7 8 9 info
 
 bpadding_top=0
 padding_bottom=0
@@ -27,7 +28,7 @@ setting_borderless_monocle='false'
 polybar_bars=(main)
 
 bspc config border_width         1
-bspc config window_gap          8
+bspc config window_gap          2
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -40,22 +41,31 @@ bspc config pointer_action2 resize_side
 bspc config pointer_action1 resize_corner
 bspc config pointer_action1 move
 
+bspc rule emacs state=tiled  
+bspc rule Emacs state=tiled
 bspc rule -a Pidgin:* desktop='^10' state=floating follow=off 
+bspc rule -a discord:* desktop='^9' follow=off 
 # bspc rule -a transmission-qt desktop='^10' split_ratio="0.33" follow=off 
 bspc rule -a transmission desktop='^10' split_ratio="0.33" follow=off 
 bspc rule -a St desktop='^10' follow=off 
+# Open browsers on web page
 bspc rule -a firefox desktop='^2' follow=off
+bspc rule -a chromium desktop='^2' follow=off
+bspc rule -a Chromium desktop='^2' follow=off
 bspc rule -a Screenkey manage=off
 
 # Auto-start programs
 pidgin &
+discord &
 transmission-qt &
-sleep 1.00
-st -e ncmpcpp &
-firefox &
+sleep 1.50
+# st -e ncmpcpp &
+chromium &
 sleep 5.00
 bspc desktop -f ^2
 
 # Clear startup rules
 bspc rule -r St
 bspc rule -r firefox
+bspc rule -r chromium
+bspc rule -r Chromium

@@ -34,8 +34,9 @@ set termguicolors
 
 " set noswapfile
 " Instead of ^^, going to try out this: 
-set directory=$HOME/.vim/swp
+" set directory=$HOME/.vim/swp
 set nobackup
+set noswapfile
 set nowb
 
 set title
@@ -112,27 +113,42 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
+" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
 
+let g:delve_backend = 'native'
 
 "---------- Leader Bindings  -------------------------------------------------- 
 let mapleader = " "
-nmap <Leader>k :GFiles<CR>
-nmap <Leader>; :Files<CR>
-nmap <Leader>l :Lines<CR>
-nmap <Leader>P :Commands<CR>
-nmap <Leader>gt :GoTest<CR>
-nmap <Leader>gr :GoRun %<CR>
-nmap <Leader>gv :GoVet<CR>
+nmap <Leader>fw :Rg<CR>
+nmap <Leader>fg :GFiles<CR>
+nmap <Leader>ff :Files<CR>
+nmap <Leader>fl :Lines<CR>
+nmap <Leader>fb :Buffers<CR>
+nmap <Leader>fp :Commands<CR>
+
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <silent><Leader>d :r!date<Esc>o
 nmap <silent><Leader>u i- (DONE) 
 " nmap <silent><Leader>t o- (DONE) 
 nmap <Leader>\ :let @/ = ""<CR>
+
+" Go bindings
+nmap <Leader>gt :GoTest<CR>
+nmap <Leader>gr :GoRun %<CR>
+nmap <Leader>gv :GoVet<CR>
+nmap <Leader>dt :DlvTest<CR>
+nmap <Leader>db :DlvAddBreakpoint<CR>
+nmap <Leader>dca :DlvClearAll<CR>
+" Tests
+nmap gtt :vsplit %:r_test.go<CR>
+nmap gt :!go test -v ./...<CR>
 nmap <Leader>gt :GoTest<CR>
 nmap <Leader>gtf :GoTestFunc<CR>
+nmap <Leader>gmt :GoTests<CR>
+nmap <Leader>gta :GoTestsAll<CR>
 nmap <Leader>gb :!go test -v --bench . --benchmem<CR>
+
 " nmap <Leader>gt :!go test ./... -coverprofile coverage.out<CR>
 " nmap <Leader>gb :!go test -v --bench . --benchmem<CR>
 noremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
@@ -143,9 +159,8 @@ map <C-J> :bnext<CR>
 map <Leader>ss :split<Return><C-w>w
 map <Leader>sv :vsplit<Return><C-w>w
 
-map <S-n> :NERDTreeToggle<CR>
+" map <S-n> :NERDTreeToggle<CR>
 nmap <silent><Leader>n :NERDTreeToggle<Enter>
-
 
 " COC settings
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -161,7 +176,9 @@ nmap <silent> gj <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use U to show documentation in preview window
-nnoremap <silent> U :call <SID>show_documentation()<CR>
+" NOTE: This is duplicated under K in func.vim
+" Leaving this here for future cleanup
+" nnoremap <silent> U :call <SID>show_documentation()<CR>
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -185,6 +202,23 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> AQ  :build_quickfix_list
+
+
+" " CTRL-A CTRL-Q to select all and build quickfix list
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
 
 " setting up vim-which-key

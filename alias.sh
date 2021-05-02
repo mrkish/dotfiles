@@ -1,5 +1,6 @@
 # Toggle between workman and US keyboard layouts
 alias usla='setxkbmap us; xset -r 66'
+# alias inla='setxkbmap us-acentos -variant ,,qwerty; xset -r 66'
 alias wla='setxkbmap -v workman && xset r 66'
 
 # General / shorties
@@ -37,6 +38,7 @@ alias gv='go vet ./...'
 alias gt='go test ./... -coverprofile=coverage.out && go vet ./... '
 alias gb='go test -v --bench . --benchmem'
 alias goc='go tool cover -html=coverage.out'
+alias gr='find . -name main.go | xargs -t go run '
 
 # Projects
 alias mg='moongo '
@@ -52,7 +54,7 @@ alias gacm="git add --all && git commit -m"
 alias gph="git push origin HEAD"
 alias gcm='git commit -m'
 alias glg='git log --graph'
-alias gbl='git branch --list'
+alias gbl='git branch --arist'
 alias gpod='git push origin develop'
 
 # Navigation
@@ -61,6 +63,7 @@ alias cdc='cd ~/code'
 alias sendf='cd /mnt/x/code/sendfriend'
 alias cdx='cd /mnt/x/'
 alias cdcx='cd /mnt/x/code'
+alias scp='cd ~/code/sicp'
 
 # Vim
 alias notes='nvim note:note'
@@ -95,7 +98,7 @@ alias pb='~/bin/pb.sh'
 # Misc
 alias weather='curl wttr.in'
 alias sbg='cp wallpaper.jpg ~/Pictures/ && feh --bg-scale ~/Pictures/wallpaper.jpg'
-alias bg='feh --bg-scale ~/Pictures/wallpaper.jpg'
+
 alias vimgo='vim -u ~/.vimrc.go'
 alias kp='~/bin/kp'
 

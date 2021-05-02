@@ -10,12 +10,12 @@ filetype plugin indent off  " required
 call plug#begin('~/.vim/plugged')
 " ----- Language support -----
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'buoto/gotests-vim',
-Plug 'rust-lang/rust'
-Plug '~/.vim/plugged/mq2-syntax'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" Plug 'rust-lang/rust'
+" Plug '~/.vim/plugged/mq2-syntax'
 " Plug 'Olical/conjure'
 " Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 " Plug 'dense-analysis/ale'
@@ -33,7 +33,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 " Plug 'ap/vim-buftabline'
 Plug 'frazrepo/vim-rainbow'
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'unblevable/quick-scope'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
@@ -47,6 +47,8 @@ Plug 'vimwiki/vimwiki'
 Plug 'michal-h21/vim-zettel'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'michal-h21/vimwiki-sync'
+Plug 'sebdah/vim-delve'
+
 "
 " ----- Themes / Looks / Vanity -----
 Plug 'mhinz/vim-startify'
@@ -123,6 +125,7 @@ let g:barow = {
       \    [ 'barowLSP#ale_status', 'StatusLine' ]
       \  ]
       \}
+
 
 " mhinz/vim-grepper
 let g:grepper={}

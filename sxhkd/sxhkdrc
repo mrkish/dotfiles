@@ -8,9 +8,9 @@ super + Return
 
 # browser
 super + w
-	firefox
+	chromium
 super + w + alt
-        firefox --private-window
+        chromium --incognito
 
 # program launcher
 super + @space
@@ -25,7 +25,8 @@ super + p
 #
 
 # quit/restart bspwm
-super + alt + shift + ctrl + {q,r}
+# super + alt + shift + ctrl + {q,r}
+super + alt + shift + ctrl + {home}
 	bspc {quit,wm -r}
 
 # close and kill
@@ -88,8 +89,13 @@ super + {o,i}
 
 # focus or send to the given desktop
 # super + {_,shift + }{1-9,0}
-super + {_,shift + }{1-9,0}
+ctrl + alt + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
+
+
+# Shift to desktop #
+ctrl + alt + super + shift + {1-9,0}
+	bspc desktop --focus '^{1-9,10}'
 
 #
 # preselect
@@ -133,4 +139,4 @@ super + alt + {h,t,n,d}
 
 # # Floating Terminal
 # super + alt + t
-#         bspc rule -a St -o state=floating focus=on rectangle=1500x1000+1200+400 sticky=on ; st
+         bspc rule -a St -o state=floating focus=on rectangle=1500x1000+1200+400 sticky=on ; st

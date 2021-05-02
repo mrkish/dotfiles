@@ -14,6 +14,7 @@ export GOPATH=$HOME/go/bin
 export PATH=$GOPATH:$GOROOT/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.emacs.d/bin:$PATH
 # export PATH=$PATH:$GOPATH:$GOROOT
 # export GO111MODULE=on
 
@@ -124,7 +125,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source ~/alias.sh
+source ~/.alias.sh
 
 # specialty views
 # alias lS='exa -1'                                                              # one column, just names
@@ -138,7 +139,7 @@ source ~/alias.sh
 export KEYTIMEOUT=1
 export EDITOR='nvim'
 export FZF_DEFAULT_OPTIONS='--layout=reverse --height 40%'
-export FZF_DEFAULT_COMMAND="rg --files --no-ignore --follow --preview 'head -100 {}'"
-#export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+# export FZF_DEFAULT_COMMAND="rg --files --no-ignore --follow --preview 'head -100 {}'"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
