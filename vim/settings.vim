@@ -202,7 +202,7 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-nnoremap <silent> AQ  :build_quickfix_list
+" nnoremap <silent> AQ  :build_quickfix_list
 
 
 " " CTRL-A CTRL-Q to select all and build quickfix list
@@ -224,7 +224,7 @@ let g:fzf_action = {
 " setting up vim-which-key
 set timeout
 set timeoutlen=800
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+" nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 " unmap <Leader>ww
 nnoremap <Leader>W  <Plug>VimwikiIndex
 

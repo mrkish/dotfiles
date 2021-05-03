@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 " ----- Language support -----
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'numtostr/FTerm.nvim'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'buoto/gotests-vim',
@@ -56,7 +57,7 @@ Plug 'mhinz/vim-startify'
 Plug 'doums/barow'
 Plug 'doums/barowGit'
 Plug 'doums/barowLSP'
-" Plug 'chuling/pure-material.vim'
+" Plug 'chuling/pure-material.vim'T
 " Plug 'morhetz/gruvbox'
 Plug 'gruvbox-community/gruvbox'
 " Plug 'NLKNguyen/papercolor-theme'
