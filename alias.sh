@@ -109,12 +109,12 @@ vf () { ls -a | fzf | xargs -r -I % $EDITOR % ; }
 
 # exa not ls
 alias ls='exa'                                                          # ls
-# alias la='exa -a'                                                          # ls
-alias laf='exa -laF'                                                          # ls
-alias l='exa -lbF --git'                                                # list, size, type, git
-alias ll='exa -lbGF --git'                                             # long list
+alias l='exa -lbG --git'                                                # list, size, type, git
+alias la='exa -labG --git'                                                # list, size, type, git
+alias laf='exa -lab'                                                          # ls
+# alias ll='exa -lbGF --git'                                             # long list
 alias llm='exa -lbGd --git --sort=modified'                            # long list, modified date sort
-alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
+# alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
 alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale' # all + extended list
 
 # KUBECTL
