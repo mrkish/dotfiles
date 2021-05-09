@@ -1,6 +1,5 @@
 set nocompatible
 
-
 call plug#begin('~/.vim/plugged')
 
 " Plug 'gruvbox-community/gruvbox'
@@ -23,7 +22,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
-Plug 'frazrepo/vim-rainbow'
+" Plug 'frazrepo/vim-rainbow'
 " Plug 'unblevable/quick-scope'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
@@ -35,6 +34,10 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 Plug 'nvim-lua/completion-nvim'
+Plug 'mbbill/undotree'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
@@ -135,20 +138,6 @@ let NERDTreeRelativeNumbers=1
 let NERDTreeWinPos=1
 let NERDTreeAutoDeleteBuffer = 1
 
-
-" Use completion-nvim in every buffer
-autocmd BufEnter * lua require'completion'.on_attach()
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
-endif
-
-" Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
 
 " TreeSitter config
 lua <<EOF
