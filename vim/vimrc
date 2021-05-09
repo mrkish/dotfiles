@@ -5,21 +5,32 @@ set wildmenu
 
 set wildignore+=*./vendor/*
 
+set backspace=indent,eol,start
+
 set relativenumber 
 set number
 set nohlsearch
 set hidden
 set noerrorbells
+set smartindent
+set title
+
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
-set smartindent
 
+set autoread
 set nowrap
 set noswapfile
 set nobackup
-set undodir=~/.vim/undodir
 set undofile
+set nofoldenable
+if has('persistent_undo')
+  set undodir=~/.vim/undodir
+  set undofile
+endif
+
+set clipboard=unnamedplus
 
 set incsearch
 set syntax
@@ -35,10 +46,32 @@ set cmdheight=1
 set updatetime=50
 set shortmess+=c
 
+set splitright
+set splitbelow
+
+set background=dark
+set termguicolors
+set noshowmode
+
+set confirm
+set lazyredraw
+set ttyfast
+set nomodeline
+" set noshowmode
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
+Plug 'fatih/vim-go', {'for': ['go']}
+
+Plug 'airblade/gim-gitgutter'
+
+Plug 'scroolooose/nerdtree'
+
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -46,3 +79,7 @@ colorscheme gruvbox
 
 
 let mapleader = " "
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+nmap <silent><Leader>d :r!date<Esc>o
+nmap <silent><Leader>u i- (DONE) 
