@@ -7,8 +7,7 @@ set fileencodings=utf-8
 
 set wildmode=longest,list,full
 set wildmenu
-
-set wildignore+=*./vendor/*
+" set wildignore+=*./vendor/*
 
 set backspace=indent,eol,start
 
@@ -20,7 +19,8 @@ set noerrorbells
 set smartindent
 set title
 
-set tabstop=4 softtabstop=4
+set tabstop=4 
+set softtabstop=4
 set shiftwidth=4
 set expandtab
 
@@ -38,7 +38,6 @@ endif
 set clipboard=unnamedplus
 
 set incsearch
-set syntax
 set termguicolors
 set scrolloff=5
 set signcolumn=yes
@@ -112,6 +111,11 @@ nnoremap <Leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+augroup cmdline
+    autocmd!
+    autocmd CmdlineLeave : echo ''
+augroup end
 
 augroup godev
     autocmd!
