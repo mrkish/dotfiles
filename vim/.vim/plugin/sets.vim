@@ -81,6 +81,18 @@ nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
+" Git commands
+" Log
+nnoremap <silent><leader>gl :Commits<CR>
+" Status
+nnoremap <silent><leader>gs :Git<CR>
+ " Branch
+" nnoremap <silent><leader>gb :Git branch<CR>
+" Commit
+nnoremap <silent><leader>gc :Git commit<CR>
+" Merge
+nnoremap <leader>gm :Git merge 
+ 
 " nnoremap <silent> gj :let _=&lazyredraw<CR>:set lazyredraw<CR>/\%<C-R>=virtcol(".")<CR>v\S<CR>:nohl<CR>:let &lazyredraw=_<CR>
 " nnoremap <silent> gk :let _=&lazyredraw<CR>:set lazyredraw<CR>?\%<C-R>=virtcol(".")<CR>v\S<CR>:nohl<CR>:let &lazyredraw=_<CR>
 
