@@ -20,6 +20,8 @@ Plug 'mhinz/vim-startify'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 Plug 'folke/which-key.nvim'
+Plug 'yamatsum/nvim-nonicons'
+Plug 'nvim-telescope/telescope-fzf-writer.nvim'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': ['go']}
 Plug 'sebdah/vim-delve', {'for': ['go']}
