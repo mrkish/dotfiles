@@ -2,24 +2,29 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'gruvbox-community/gruvbox'
-" Plug 'npxbr/gruvbox.nvim'
-" Plug 'rktjmp/lush.nvim'
+" Plug 'gruvbox-community/gruvbox'
+Plug 'shaunsingh/nord.nvim'
+Plug 'npxbr/gruvbox.nvim'
+Plug 'rktjmp/lush.nvim'
 " Plug 'savq/melange'
 " Plug 'novakne/kosmikoa.nvim'
 " Plug 'marko-cerovac/material.nvim'
 " Plug 'sainnhe/edge'
 " Plug 'theniceboy/nvim-deus'
 " Plug 'Th3Whit3Wolf/space-nvim'
-Plug 'shaunsingh/moonlight.nvim'
-Plug 'folke/tokyonight.nvim'
+" Plug 'shaunsingh/moonlight.nvim'
+" Plug 'folke/tokyonight.nvim'
 Plug 'mhinz/vim-startify'
 " Plug 'doums/barow'
 " Plug 'doums/barowGit'
 " Plug 'doums/barowLSP'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
+Plug 'folke/lualine.nvim'
+Plug 'folke/lsp-colors.nvim'
 Plug 'folke/which-key.nvim'
+Plug 'folke/todo-comments.nvim'
+Plug 'folke/trouble.nvim'
 Plug 'yamatsum/nvim-nonicons'
 Plug 'nvim-telescope/telescope-fzf-writer.nvim'
 
@@ -218,6 +223,14 @@ require'telescope'.setup{
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
   }
 }
+
+ require("todo-comments").setup {
+ -- your configuration comes here
+ -- or leave it empty to use the default settings
+ -- refer to the configuration section below
+ }
+
+require('lualine').setup{}
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
