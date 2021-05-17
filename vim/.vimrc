@@ -56,7 +56,7 @@ Plug 'michal-h21/vimwiki-sync'
 " Plug 'gruvbox-community/gruvbox'
 Plug 'shaunsingh/nord.nvim'
 Plug 'npxbr/gruvbox.nvim'
-Plug 'rktjmp/lush.nvim'
+" Plug 'rktjmp/lush.nvim'
 " Plug 'savq/melange'
 " Plug 'novakne/kosmikoa.nvim'
 " Plug 'marko-cerovac/material.nvim'
@@ -66,9 +66,6 @@ Plug 'rktjmp/lush.nvim'
 " Plug 'shaunsingh/moonlight.nvim'
 " Plug 'folke/tokyonight.nvim'
 Plug 'mhinz/vim-startify'
-" Plug 'doums/barow'
-" Plug 'doums/barowGit'
-" Plug 'doums/barowLSP'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 Plug 'folke/lualine.nvim'
@@ -145,7 +142,6 @@ require'telescope'.setup{
       '--column',
       '--smart-case'
     },
-    file_ignore_patterns = {'vendor/'},
     prompt_position = "bottom",
     prompt_prefix = "> ",
     selection_caret = "> ",
@@ -163,7 +159,7 @@ require'telescope'.setup{
       },
     },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
-    file_ignore_patterns = {},
+    file_ignore_patterns = {'vendor/'},
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
     shorten_path = true,
     winblend = 0,

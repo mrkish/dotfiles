@@ -163,6 +163,7 @@ nnoremap <Leader>fq <cmd>lua require('telescope.builtin').quickfix()<cr>
 nnoremap <Leader>fm <cmd>lua require('telescope.builtin').marks()<cr>
 nnoremap <Leader>ft <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <Leader>e <cmd>lua require('telescope.builtin').file_browser()<cr>
+nnoremap <Leader>ca <cmd>lua require('telescope.builtin').lsp_code_actions()<cr>
 " nnoremap <Leader>fd <cmd>lua require('telescope.builtin').live_grep(search_dirs{})<cr>
 nnoremap <Leader>tt :TodoTrouble<cr>
 nnoremap <Leader>td :TodoTelescope<cr>
