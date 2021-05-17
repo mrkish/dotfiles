@@ -1,3 +1,4 @@
+set nocompatible
 filetype plugin indent off  " required
 
 call plug#begin('~/.vim/plugged')
@@ -42,7 +43,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
 
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-Plug 'unblevable/quick-scope'
+" Plug 'unblevable/quick-scope'
 Plug 'mhinz/vim-grepper'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
@@ -194,7 +195,9 @@ require'telescope'.setup{
  -- refer to the configuration section below
  }
 
-require'lualine'.setup{}
+ require('lualine').setup{
+ -- extensions={quickfix,fzf}
+ }
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages

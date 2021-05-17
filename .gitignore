@@ -1,9 +1,14 @@
 /vim/bundle/*
 /vim/plugged/*
 /vim/autoload/*
+/vim/.vim/bundle/*
+/vim/.vim/plugged/*
+/vim/.vim/autoload/*
 /vim/aut
 /vim/undodir/*
+/vim/.vim/undodir/*
 /vim/swp/*
+/vim/.vim/swp/*
 
 /oh-my-zsh/themes
 /oh-my-zsh/plugins

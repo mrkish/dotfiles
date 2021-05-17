@@ -15,13 +15,6 @@ nnoremap <silent><Leader>d :r!date<Esc>o
 nnoremap <silent><Leader>u i- (DONE) 
 nnoremap <Leader>\ :let @/ = ""<CR>
 
-nnoremap <Leader>fw :Rg<CR>
-nnoremap <Leader>fg :GFiles<CR>
-nnoremap <Leader>ff :Files<CR>
-nnoremap <Leader>fl :Lines<CR>
-nnoremap <Leader>fb :Buffers<CR>
-nnoremap <Leader>fp :Commands<CR>
-
 nmap <silent><Leader>n :NERDTreeToggle<Enter>
 
 " NERDTree
@@ -119,9 +112,7 @@ nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
 
 " Git commands
-" Log
-nnoremap <silent><leader>gl :Commits<CR>
-" Status
+" nnoremap <silent><leader>gl :Commits<CR>
 nnoremap <silent><leader>gs :Git<CR>
  " Branch
 " nnoremap <silent><leader>gb :Git branch<CR>
@@ -149,12 +140,30 @@ let g:completion_enable_auto_popup = 1
 
 nnoremap <F5> :UndotreeToggle<CR>
 
+" FZF
+" nnoremap <Leader>fw :Rg<CR>
+" nnoremap <Leader>fg :GFiles<CR>
+" nnoremap <Leader>ff :Files<CR>
+" nnoremap <Leader>fl :Lines<CR>
+" nnoremap <Leader>fb :Buffers<CR>
+
 " Find files using Telescope with lua functions
+" Git
+nnoremap <Leader>gl <cmd>lua require('telescope.builtin').git_commits()<cr>
+nnoremap <Leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
+nnoremap <Leader>ts <cmd>lua require('telescope.builtin').git_status()<cr>
+" Find
 nnoremap <Leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <Leader>fi <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <Leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <Leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <Leader>fp <cmd>lua require('telescope.builtin').commands()<cr>
+nnoremap <Leader>fq <cmd>lua require('telescope.builtin').quickfix()<cr>
+nnoremap <Leader>fm <cmd>lua require('telescope.builtin').marks()<cr>
+nnoremap <Leader>ft <cmd>lua require('telescope.builtin').grep_string()<cr>
+nnoremap <Leader>e <cmd>lua require('telescope.builtin').file_browser()<cr>
+" nnoremap <Leader>fd <cmd>lua require('telescope.builtin').live_grep(search_dirs{})<cr>
 nnoremap <Leader>tt :TodoTrouble<cr>
 nnoremap <Leader>td :TodoTelescope<cr>
 
