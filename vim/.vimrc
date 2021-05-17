@@ -137,10 +137,10 @@ xmap gr <plug>(GrepperOperator)
 let g:notes_directories = ['~/Dropbox/Documents/Notes']
 
 " Load keymappings
-source ~/.vim/settings.vim
+" source ~/.vim/settings.vim
 
 " Load functions
-source ~/.vim/func.vim
+" source ~/.vim/func.vim
 
 " TreeSitter config
 lua <<EOF
