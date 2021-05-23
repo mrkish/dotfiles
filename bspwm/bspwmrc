@@ -1,6 +1,7 @@
 #! /bin/sh
 
 sxhkd &
+picom --config /home/mrk/.config/picom/picom.conf &
 $HOME/.config/polybar/launch.sh &
 
 # second_monitor=$(xrandr --query | grep 'DVI-D-0')
