@@ -143,3 +143,4 @@ export FZF_DEFAULT_OPTIONS='--layout=reverse --height 40%'
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -e /home/mrk/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mrk/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

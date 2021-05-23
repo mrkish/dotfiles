@@ -40,19 +40,16 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['racket', 'scheme']}
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'mhinz/vim-grepper'
 
-" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-" Plug 'unblevable/quick-scope'
-Plug 'mhinz/vim-grepper'
+" ----- Notes  /  GTD  /  Org -----
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
-Plug 'vimwiki/vimwiki'
-Plug 'michal-h21/vim-zettel'
-Plug 'kevinhwang91/nvim-bqf'
-Plug 'michal-h21/vimwiki-sync'
+Plug 'oberblastmeister/neuron.nvim'
+" Plug 'vimwiki/vimwiki'
+" Plug 'michal-h21/vim-zettel'
+" Plug 'michal-h21/vimwiki-sync'
 
-" ----- Themes / Looks / Vanity -----
+" ----- Themes -----
 " Plug 'gruvbox-community/gruvbox'
 Plug 'shaunsingh/nord.nvim'
 Plug 'npxbr/gruvbox.nvim'
@@ -65,6 +62,11 @@ Plug 'npxbr/gruvbox.nvim'
 " Plug 'Th3Whit3Wolf/space-nvim'
 " Plug 'shaunsingh/moonlight.nvim'
 " Plug 'folke/tokyonight.nvim'
+
+" ----- UI Changes -----
+" Plug 'unblevable/quick-scope'
+" Plug 'mhinz/vim-grepper'
+Plug 'kevinhwang91/nvim-bqf'
 Plug 'mhinz/vim-startify'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
@@ -75,7 +77,6 @@ Plug 'folke/todo-comments.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'yamatsum/nvim-nonicons'
 Plug 'nvim-telescope/telescope-fzf-writer.nvim'
-
 Plug 'scrooloose/nerdtree' 
 
 call plug#end()
@@ -183,6 +184,14 @@ require'telescope'.setup{
         }
     }
   }
+}
+
+require'neuron'.setup {
+    virtual_titles = true,
+    mappings = true,
+    run = nil, -- function to run when in neuron dir
+    neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
+    leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
 }
 
  require("todo-comments").setup {
