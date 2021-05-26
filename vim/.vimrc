@@ -52,6 +52,8 @@ Plug 'oberblastmeister/neuron.nvim'
 " ----- Themes -----
 " Plug 'gruvbox-community/gruvbox'
 Plug 'shaunsingh/nord.nvim'
+Plug 'sainnhe/gruvbox-material'
+Plug 'eddyekofo94/gruvbox-flat.nvim'
 Plug 'npxbr/gruvbox.nvim'
 " Plug 'rktjmp/lush.nvim'
 " Plug 'savq/melange'
@@ -65,7 +67,6 @@ Plug 'npxbr/gruvbox.nvim'
 
 " ----- UI Changes -----
 " Plug 'unblevable/quick-scope'
-" Plug 'mhinz/vim-grepper'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'mhinz/vim-startify'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -186,14 +187,6 @@ require'telescope'.setup{
   }
 }
 
-require'neuron'.setup {
-    virtual_titles = true,
-    mappings = true,
-    run = nil, -- function to run when in neuron dir
-    neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
-    leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
-}
-
  require("todo-comments").setup {
  -- your configuration comes here
  -- or leave it empty to use the default settings
@@ -202,6 +195,9 @@ require'neuron'.setup {
 
  require('lualine').setup{
  -- extensions={quickfix,fzf}
+     options={
+         theme='gruvbox-flat'
+     }
  }
 
 require'nvim-treesitter.configs'.setup {

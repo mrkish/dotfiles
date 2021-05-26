@@ -1,7 +1,7 @@
 set background=dark
 set termguicolors
 
-colorscheme gruvbox
+colorscheme gruvbox-material
 
 " Statusline
 " :h mode() to see all modes
