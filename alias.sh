@@ -17,8 +17,18 @@ alias rdst='/home/mrk/.scripts/start-redshift'
 alias rdstp='redshift -x &'
 alias lg='ls -a | grep '
 
-# Vim Wiki
+# Vim Wiki / Notes
 alias vw='nvim ~/vimwiki/index.wiki'
+
+function timestamp() {
+    date '+%Y-%m-%d_%H:%M'
+}
+alias nn='touch note-$(timestamp).md'
+alias nv='touch note-$(timestamp).md; nvim note-$(timestamp).md'
+# alias notes='nvim note:note'
+alias notes='cd ~/Notes'
+alias note='nvim note:note'
+alias todo='nvim note:todo'
 
 # Arch
 alias arc='nvim ~/dotfiles/alias.sh'
@@ -64,11 +74,6 @@ alias sendf='cd /mnt/x/code/sendfriend'
 alias cdx='cd /mnt/x/'
 alias cdcx='cd /mnt/x/code'
 alias scp='cd ~/code/sicp'
-
-# Vim
-alias notes='nvim note:note'
-alias note='nvim note:note'
-alias todo='nvim note:todo'
 
 # TMUX
 alias tls='tmux list-sessions'

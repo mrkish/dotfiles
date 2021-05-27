@@ -104,31 +104,18 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export LANG=en_US.UTF-8
+export KEYTIMEOUT=1
+export EDITOR='nvim'
 
 source ~/.alias.sh
 
 # specialty views
-# alias lS='exa -1'                                                              # one column, just names
+# alias lS='exa -1'                                                       # one column, just names
 # alias lt='exa --tree --level=2'                                         # tree
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -136,8 +123,6 @@ source ~/.alias.sh
 
 # vim settings
 # bindkey -v
-export KEYTIMEOUT=1
-export EDITOR='nvim'
 export FZF_DEFAULT_OPTIONS='--layout=reverse --height 40%'
 # export FZF_DEFAULT_COMMAND="rg --files --no-ignore --follow --preview 'head -100 {}'"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
