@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+function timestamp() {
+    date '+%Y-%m-%d'
+}
+
+vf() { fzf | xargs -I % $EDITOR % }
+mkcd() { mkdir -p -- "$1" && cd -P -- "$1" }
+# alias kl() {
+#     kubectl logs --all-containers --ignore-errors --max-log-requests 50 -l app=$1 -f --context $2
+#
+

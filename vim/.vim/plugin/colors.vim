@@ -1,7 +1,12 @@
 set background=dark
 set termguicolors
 
-colorscheme gruvbox
+let gruvbox_flat_style = "dark"
+let gruvbox_italic_functions = 1
+let gruvbox_italic_comments = 1
+
+" colorscheme gruvbox
+colorscheme gruvbox-flat
 
 " Statusline
 " :h mode() to see all modes

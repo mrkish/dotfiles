@@ -37,7 +37,6 @@ endif
 set clipboard=unnamedplus
 
 set incsearch
-set termguicolors
 set scrolloff=5
 set signcolumn=yes
 set isfname+=@-@
@@ -58,7 +57,7 @@ set confirm
 set lazyredraw
 set ttyfast
 set nomodeline
-set syntax
+" set syntax
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
@@ -81,7 +80,6 @@ nnoremap <silent> <C-h> :call WinMove('h')<CR>
 nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
-
 
 " Git commands
 " Log
@@ -118,16 +116,29 @@ let g:completion_enable_auto_popup = 1
 nnoremap <F5> :UndotreeToggle<CR>
 
 " Find files using Telescope with lua functions
+" Git
+nnoremap <Leader>gl <cmd>lua require('telescope.builtin').git_commits()<cr>
+nnoremap <Leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
+nnoremap <Leader>ts <cmd>lua require('telescope.builtin').git_status()<cr>
+" Find
 nnoremap <Leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <Leader>fi <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <Leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <Leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <Leader>fp <cmd>lua require('telescope.builtin').commands()<cr>
+nnoremap <Leader>fq <cmd>lua require('telescope.builtin').quickfix()<cr>
+nnoremap <Leader>fm <cmd>lua require('telescope.builtin').marks()<cr>
+nnoremap <Leader>ft <cmd>lua require('telescope.builtin').grep_string()<cr>
+nnoremap <Leader>e <cmd>lua require('telescope.builtin').file_browser()<cr>
+nnoremap <Leader>ca <cmd>lua require('telescope.builtin').lsp_code_actions()<cr>
+" nnoremap <Leader>fd <cmd>lua require('telescope.builtin').live_grep(search_dirs{})<cr>vnoremap J :m '>+1<CR>gv=gv
 nnoremap <Leader>tt :TodoTrouble<cr>
 nnoremap <Leader>td :TodoTelescope<cr>
 
-vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+let g:wiki_filetypes=[".md"]
 
 augroup godev
     autocmd!
@@ -155,7 +166,7 @@ augroup godev
     autocmd FileType go let g:delve_backend = 'native'
 
     " Language server
-    autocmd FileType go let g:go_gpls_enabled=1
+    autocmd FileType go let g:go_gpls_enabled=0
     autocmd FileType go let g:go_def_mapping_enabled = 0
     autocmd FileType go let g:go_fmt_command = "goimports"
     autocmd FileType go let g:go_def_mode = "gopls"
