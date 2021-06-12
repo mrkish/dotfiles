@@ -55,6 +55,7 @@ Plug 'shaunsingh/nord.nvim'
 Plug 'sainnhe/gruvbox-material'
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 Plug 'npxbr/gruvbox.nvim'
+Plug 'rmagatti/goto-preview'
 " Plug 'rktjmp/lush.nvim'
 " Plug 'savq/melange'
 " Plug 'novakne/kosmikoa.nvim'
@@ -186,6 +187,7 @@ require'telescope'.setup{
     }
   }
 }
+require('goto-preview').setup {}
 
  require("todo-comments").setup {
  -- your configuration comes here

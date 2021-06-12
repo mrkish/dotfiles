@@ -1,6 +1,14 @@
 set background=dark
 set termguicolors
 
+let g:gruvbox_flat_style="dark"
+let g:gruvbox_italic_comments=1
+let g:gruvbox_italic_functions=1
+let g:gruvbox_italic_keywords=1
+let g:gruvbox_dark_sidebar=1
+let g:gruvbox_dark_float=1
+let g:gruvbox_sidebars=["qf","terminal"]
+
 colorscheme gruvbox-material
 
 " Statusline
