@@ -31,7 +31,7 @@ alias note='nvim note:note'
 alias todo='nvim note:todo'
 
 # Arch
-alias arc='nvim ~/dotfiles/alias.sh'
+alias arc='nvim ~//alias.sh'
 alias xrc='nvim ~/.xinitrc'
 alias sxrc='nvim ~/.config/sxhkd/sxhkdrc'
 alias bprc='nvim ~/.config/bspwm/bspwmrc'
@@ -115,15 +115,25 @@ mkcd () { mkdir --p -- "$1" && cd -P -- "$1" }
 # view files -- leveraging fzf
 vf () { ls -a | fzf | xargs -r -I % $EDITOR % ; }
 
-# exa not ls
-alias ls='exa'                                                          # ls
-alias l='exa -lbG --git'                                                # list, size, type, git
-alias la='exa -labG --git'                                                # list, size, type, git
-alias laf='exa -lab'                                                          # ls
-# alias ll='exa -lbGF --git'                                             # long list
-alias llm='exa -lbGd --git --sort=modified'                            # long list, modified date sort
-# alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
-alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale' # all + extended list
+# lsd not ls
+alias ls='lsd'                                                          # ls
+alias l='lsd'                                                # list, size, type, git
+alias la='lsd -a'                                                # list, size, type, git
+alias laf='lsd -la'                                                          # ls
+# alias ll='lsd -lbGF --git'                                             # long list
+alias llm='lsd -ld --sort=modified'                            # long list, modified date sort
+# alias la='lsd -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
+alias lx='lsd -lhigUmuSa@ --human-readable --time-style=long-iso  --color-scale' # all + extended list
+
+# # exa not ls
+# alias ls='exa'                                                          # ls
+# alias l='exa -lbG --git'                                                # list, size, type, git
+# alias la='exa -labG --git'                                                # list, size, type, git
+# alias laf='exa -lab'                                                          # ls
+# # alias ll='exa -lbGF --git'                                             # long list
+# alias llm='exa -lbGd --git --sort=modified'                            # long list, modified date sort
+# # alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
+# alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale' # all + extended list
 
 # KUBECTL
 alias k='kubectl '
