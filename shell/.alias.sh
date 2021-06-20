@@ -17,6 +17,8 @@ alias rdst='/home/mrk/.scripts/start-redshift'
 alias rdstp='redshift -x &'
 alias lg='ls -a | grep '
 
+alias top=gotop
+
 # Vim Wiki / Notes
 alias vw='nvim ~/vimwiki/index.wiki'
 
@@ -31,7 +33,7 @@ alias note='nvim note:note'
 alias todo='nvim note:todo'
 
 # Arch
-alias arc='nvim ~//alias.sh'
+alias arc='nvim ~/.alias.sh'
 alias xrc='nvim ~/.xinitrc'
 alias sxrc='nvim ~/.config/sxhkd/sxhkdrc'
 alias bprc='nvim ~/.config/bspwm/bspwmrc'

@@ -1,7 +1,7 @@
-set background=dark
+" set background=dark
 set termguicolors
 
-let g:gruvbox_flat_style="dark"
+" let g:gruvbox_flat_style="light"
 let g:gruvbox_italic_comments=1
 let g:gruvbox_italic_functions=1
 let g:gruvbox_italic_keywords=1

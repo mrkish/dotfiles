@@ -1,6 +1,6 @@
 #!/bin/sh
 
-feh --bg-ma ~/Pictures/wallpaper.jpg &
+feh --bg-center $HOME/Pictures/wallpaper.jpg &
 picom --config /home/mrk/.config/picom/picom.conf &
 xbindkeys --poll-rc &
 polybar main &
