@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/.zshfunc
+
 # General / shorties
 alias c='clear'
 alias x='exit'
@@ -99,6 +101,7 @@ alias vrc='nvim ~/.vimrc'
 alias vsrc='nvim ~/.vim/settings.vim'
 alias vfrc='nvim ~/.vim/func.vim'
 alias trc='nvim ~/.tmux.conf'
+alias zrc='nvim ~/.zshrc'
 alias nvrc='nvim ~/.config/nvim/init.vim'
 alias zsrc='source ~/.zshrc'
 alias pb='~/bin/pb.sh'
@@ -124,7 +127,7 @@ vf () { ls -a | fzf | xargs -r -I % $EDITOR % ; }
 alias ls='lsd --color=auto'                                                          # ls
 # alias la='lsd -a'                                                          # ls
 alias laf='lsd -laF --color=auto'                                                          # ls
-alias l='lsd -lF --git'                                                # list, size, type, git
+alias l='lsd -lF --color=auto'                                                # list, size, type, git
 alias ll='lsd -lGF --git --color=auto'                                             # long list
 alias llm='lsd -lGd --git --sort=modified --color=auto'                            # long list, modified date sort
 alias la='lsd -lhigUmuSa --time-style=long-iso --git --color=auto'  # all list

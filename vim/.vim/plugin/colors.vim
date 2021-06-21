@@ -1,12 +1,13 @@
 set background=dark
 set termguicolors
 
-let gruvbox_flat_style = "dark"
+let gruvbox_flat_style = "light"
 let gruvbox_italic_functions = 1
 let gruvbox_italic_comments = 1
 
 " colorscheme gruvbox
 colorscheme gruvbox-flat
+" colorscheme solarized-light
 
 " Statusline
 " :h mode() to see all modes

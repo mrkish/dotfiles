@@ -60,7 +60,8 @@ set nomodeline
 " set syntax
 
 " Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
+" set completeopt=menuone,noinsert,noselect <-- from nvim-completion
+set completeopt=menuone,noselect
 
 nnoremap j gj
 nnoremap k gk
@@ -107,7 +108,8 @@ if has("autocmd")
 endif
 
 " Use completion-nvim in every buffer
-autocmd BufEnter * lua require'completion'.on_attach()
+" autocmd BufEnter * lua require'compe'.on_attach()
+"
 " " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -120,6 +122,10 @@ nnoremap <F5> :UndotreeToggle<CR>
 nnoremap <Leader>gl <cmd>lua require('telescope.builtin').git_commits()<cr>
 nnoremap <Leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <Leader>ts <cmd>lua require('telescope.builtin').git_status()<cr>
+
+nnoremap <Leader>gg <cmd>lua require('neogit').open({ kind="split"})<cr>
+nnoremap <Leader>gc <cmd>lua require('neogit').open({"commit"})<cr>
+
 " Find
 nnoremap <Leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>

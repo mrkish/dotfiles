@@ -7,7 +7,9 @@ Plug 'rktjmp/lush.nvim'
 " Plug 'shaunsingh/moonlight.nvim'
 " Plug 'npxbr/gruvbox.nvim'
 Plug 'gruvbox-community/gruvbox'
+Plug 'altercation/vim-colors-solarized'
 Plug 'eddyekofo94/gruvbox-flat.nvim'
+Plug 'altercation/vim-colors-solarized'
 " Plug 'folke/tokyonight.nvim'
 " Plug 'Yggdroot/indentLine'
 " Plug 'lukas-reineke/indent-blankline.nvim'
@@ -29,11 +31,12 @@ Plug 'sebdah/vim-delve', {'for': ['go']}
 Plug 'buoto/gotests-vim', {'for': ['go']}
 
 Plug 'airblade/vim-gitgutter'
+Plug 'TimUntersberger/neogit'
 Plug 'scrooloose/nerdtree' 
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'guns/vim-sexp', {'for': ['racket', 'scheme']}
@@ -51,12 +54,13 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 Plug 'neovim/nvim-lspconfig'
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
-Plug 'nvim-lua/completion-nvim'
-" Plug 'hrsh7th/nvim-compe'
+" Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-compe'
 Plug 'mbbill/undotree'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'ggandor/lightspeed.nvim'
 
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
@@ -166,7 +170,33 @@ vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.imp
 vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
 vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
 
-require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  resolve_timeout = 800;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
+
+  source = {
+    path = true;
+    buffer = true;
+    calc = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+    vsnip = true;
+    ultisnips = true;
+  };
+}
+
+require'lspconfig'.gopls.setup{on_attach=require'compe'.on_attach}
 
 require'telescope'.setup{
   defaults = {
@@ -234,6 +264,8 @@ require'telescope'.setup{
  -- or leave it empty to use the default settings
  -- refer to the configuration section below
  }
+
+ require("neogit").setup{}
 
 require('lualine').setup{
   options = {
