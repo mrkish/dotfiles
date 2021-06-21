@@ -13,7 +13,6 @@
 (set-frame-parameter (selected-frame) 'alpha '(100 100))
 (add-to-list 'default-frame-alist '(alpha 100 100))
 
-
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -47,56 +46,55 @@
 ;; Disable the horrible quitting messages
 (setq confirm-kill-emacs nil)
 
-;; From : https://sandyuraz.com/articles/go-emacs
-;; (ac-config-default)
-;; (global-auto-complete-mode t)
-;; (require 'go-autocomplete)
-;; (auto-complete-mode 1)
-;; (setq ac-auto-start 1)
-;; (setq ac-auto-show-menu 0.8)
-
-; (add-to-list 'exec-path "~/go/bin")
+(add-to-list 'exec-path "~/go/bin")
 
 ;; Go stuff
 (add-hook 'go-mode-hook 'lsp-deferred)
-(add-hook 'completion-at-point-functions 'go-complete-at-point)
 (setq gofmt-command "goimports")
+
 (add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(require 'go-complete)
+(add-hook 'completion-at-point-functions 'go-complete-at-point)
+
+(add-to-list 'yas-snippet-dirs "~/gits/yasnippet-go")
 
 ;; Bonus: escape analysis.
-;; (flycheck-define-checker go-build-escape
-;;   "A Go escape checker using `go build -gcflags -m'."
-;;   :command ("go" "build" "-gcflags" "-m"
-;;             (option-flag "-i" flycheck-go-build-install-deps)
-;;             ;; multiple tags are listed as "dev debug ..."
-;;             (option-list "-tags=" flycheck-go-build-tags concat)
-;;             "-o" null-device)
-;;   :error-patterns
-;;   (
-;;    (warning line-start (file-name) ":" line ":"
-;;           (optional column ":") " "
-;;           (message (one-or-more not-newline) "escapes to heap")
-;;           line-end)
-;;    (warning line-start (file-name) ":" line ":"
-;;           (optional column ":") " "
-;;           (message "moved to heap:" (one-or-more not-newline))
-;;           line-end)
-;;    (info line-start (file-name) ":" line ":"
-;;           (optional column ":") " "
-;;           (message "inlining call to " (one-or-more not-newline))
-;;           line-end)
-;;   )
-;;   :modes go-mode
-;;   :predicate (lambda ()
-;;                (and (flycheck-buffer-saved-p)
-;;                     (not (string-suffix-p "_test.go" (buffer-file-name)))))
-;;   :next-checkers ((warning . go-errcheck)
-;;                   (warning . go-unconvert)
-;;                   (warning . go-staticcheck)))
+(require 'flycheck)
+(flycheck-define-checker go-build-escape
+  "A Go escape checker using `go build -gcflags -m'."
+  :command ("go" "build" "-gcflags" "-m"
+            (option-flag "-i" flycheck-go-build-install-deps)
+            ;; multiple tags are listed as "dev debug ..."
+            (option-list "-tags=" flycheck-go-build-tags concat)
+            "-o" null-device)
+  :error-patterns
+  (
+   (warning line-start (file-name) ":" line ":"
+          (optional column ":") " "
+          (message (one-or-more not-newline) "escapes to heap")
+          line-end)
+   (warning line-start (file-name) ":" line ":"
+          (optional column ":") " "
+          (message "moved to heap:" (one-or-more not-newline))
+          line-end)
+   (info line-start (file-name) ":" line ":"
+          (optional column ":") " "
+          (message "inlining call to " (one-or-more not-newline))
+          line-end)
+  )
+  :modes go-mode
+  :predicate (lambda ()
+               (and (flycheck-buffer-saved-p)
+                    (not (string-suffix-p "_test.go" (buffer-file-name)))))
+  :next-checkers ((warning . go-errcheck)
+                  (warning . go-unconvert)
+                  (warning . go-staticcheck)))
 
-;; (with-eval-after-load 'flycheck
-;;    (add-to-list 'flycheck-checkers 'go-build-escape)
-;;    (flycheck-add-next-checker 'go-gofmt 'go-build-escape))
+(with-eval-after-load 'flycheck
+   (add-to-list 'flycheck-checkers 'go-build-escape)
+   (flycheck-add-next-checker 'go-gofmt 'go-build-escape))
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
