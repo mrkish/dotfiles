@@ -36,9 +36,9 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-(setq evil-normal-state-cursor '(box "lime green")
-      evil-insert-state-cursor '(bar "firebrick")
-      evil-visual-state-cursor '(hollow "orange"))
+(setq evil-normal-state-cursor '(box "chartreuse")
+      evil-insert-state-cursor '(bar "dark orchid")
+      evil-visual-state-cursor '(hollow "dark orange"))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -50,56 +50,56 @@
 ;; Disable the horrible quitting messages
 (setq confirm-kill-emacs nil)
 
-(add-to-list 'exec-path "~/go/bin")
+;; (add-to-list 'exec-path "~/go/bin")
 
-;; Go stuff
-(add-hook 'go-mode-hook 'lsp-deferred)
-(setq gofmt-command "goimports")
+;; ;; Go stuff
+;; (add-hook 'go-mode-hook 'lsp-deferred)
+;; (setq gofmt-command "goimports")
 
-(add-hook 'before-save-hook 'gofmt-before-save)
-(add-hook 'after-init-hook 'global-company-mode)
+;; (add-hook 'before-save-hook 'gofmt-before-save)
+;; (add-hook 'after-init-hook 'global-company-mode)
 
-(require 'go-complete)
-(add-hook 'completion-at-point-functions 'go-complete-at-point)
+;; (require 'go-complete)
+;; (add-hook 'completion-at-point-functions 'go-complete-at-point)
 
-;; don't even need it since there's already quite a lot built in !!!
-;; (add-to-list 'yas-snippet-dirs "~/gits/yasnippet-go")
+;; ;; don't even need it since there's already quite a lot built in !!!
+;; ;; (add-to-list 'yas-snippet-dirs "~/gits/yasnippet-go")
 
-;; Bonus: escape analysis.
-(require 'flycheck)
-(flycheck-define-checker go-build-escape
-  "A Go escape checker using `go build -gcflags -m'."
-  :command ("go" "build" "-gcflags" "-m"
-            (option-flag "-i" flycheck-go-build-install-deps)
-            ;; multiple tags are listed as "dev debug ..."
-            (option-list "-tags=" flycheck-go-build-tags concat)
-            "-o" null-device)
-  :error-patterns
-  (
-   (warning line-start (file-name) ":" line ":"
-          (optional column ":") " "
-          (message (one-or-more not-newline) "escapes to heap")
-          line-end)
-   (warning line-start (file-name) ":" line ":"
-          (optional column ":") " "
-          (message "moved to heap:" (one-or-more not-newline))
-          line-end)
-   (info line-start (file-name) ":" line ":"
-          (optional column ":") " "
-          (message "inlining call to " (one-or-more not-newline))
-          line-end)
-  )
-  :modes go-mode
-  :predicate (lambda ()
-               (and (flycheck-buffer-saved-p)
-                    (not (string-suffix-p "_test.go" (buffer-file-name)))))
-  :next-checkers ((warning . go-errcheck)
-                  (warning . go-unconvert)
-                  (warning . go-staticcheck)))
+;; ;; Bonus: escape analysis.
+;; (require 'flycheck)
+;; (flycheck-define-checker go-build-escape
+;;   "A Go escape checker using `go build -gcflags -m'."
+;;   :command ("go" "build" "-gcflags" "-m"
+;;             (option-flag "-i" flycheck-go-build-install-deps)
+;;             ;; multiple tags are listed as "dev debug ..."
+;;             (option-list "-tags=" flycheck-go-build-tags concat)
+;;             "-o" null-device)
+;;   :error-patterns
+;;   (
+;;    (warning line-start (file-name) ":" line ":"
+;;           (optional column ":") " "
+;;           (message (one-or-more not-newline) "escapes to heap")
+;;           line-end)
+;;    (warning line-start (file-name) ":" line ":"
+;;           (optional column ":") " "
+;;           (message "moved to heap:" (one-or-more not-newline))
+;;           line-end)
+;;    (info line-start (file-name) ":" line ":"
+;;           (optional column ":") " "
+;;           (message "inlining call to " (one-or-more not-newline))
+;;           line-end)
+;;   )
+;;   :modes go-mode
+;;   :predicate (lambda ()
+;;                (and (flycheck-buffer-saved-p)
+;;                     (not (string-suffix-p "_test.go" (buffer-file-name)))))
+;;   :next-checkers ((warning . go-errcheck)
+;;                   (warning . go-unconvert)
+;;                   (warning . go-staticcheck)))
 
-(with-eval-after-load 'flycheck
-   (add-to-list 'flycheck-checkers 'go-build-escape)
-   (flycheck-add-next-checker 'go-gofmt 'go-build-escape))
+;; (with-eval-after-load 'flycheck
+;;    (add-to-list 'flycheck-checkers 'go-build-escape)
+;;    (flycheck-add-next-checker 'go-gofmt 'go-build-escape))
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:

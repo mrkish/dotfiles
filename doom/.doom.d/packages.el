@@ -60,9 +60,12 @@
 
 ;; Go
 (package! go-mode)
-(package! go-complete)
-;; (package! go-autocomplete)
-(package! godoctor)
+(package! go-eldoc)
+(package! go-guru)
+(package! go-tag)
+(package! gorepl-mode)
+(package! go-gen-test)
+(package! flycheck-golangci-lint)
 
 ;; Git
 (package! magit)
