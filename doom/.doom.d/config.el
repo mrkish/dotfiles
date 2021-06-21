@@ -36,8 +36,8 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-(setq evil-normal-state-cursor '(box "medium sea green")
-      evil-insert-state-cursor '(bar "red")
+(setq evil-normal-state-cursor '(box "lime green")
+      evil-insert-state-cursor '(bar "firebrick")
       evil-visual-state-cursor '(hollow "orange"))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
