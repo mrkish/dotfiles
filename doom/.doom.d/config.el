@@ -36,6 +36,10 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+(setq evil-normal-state-cursor '(box "medium sea green")
+      evil-insert-state-cursor '(bar "red")
+      evil-visual-state-cursor '(hollow "orange"))
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 ;; (setq display-line-numbers-type t)
@@ -58,7 +62,8 @@
 (require 'go-complete)
 (add-hook 'completion-at-point-functions 'go-complete-at-point)
 
-(add-to-list 'yas-snippet-dirs "~/gits/yasnippet-go")
+;; don't even need it since there's already quite a lot built in !!!
+;; (add-to-list 'yas-snippet-dirs "~/gits/yasnippet-go")
 
 ;; Bonus: escape analysis.
 (require 'flycheck)
