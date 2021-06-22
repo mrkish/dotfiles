@@ -36,9 +36,9 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-(setq evil-normal-state-cursor '(box "lime green")
-      evil-insert-state-cursor '(bar "firebrick")
-      evil-visual-state-cursor '(hollow "orange"))
+(setq evil-normal-state-cursor '(box "lawn green")
+      evil-insert-state-cursor '(bar "purple1")
+      evil-visual-state-cursor '(hollow "dark orange"))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -50,11 +50,11 @@
 ;; Disable the horrible quitting messages
 (setq confirm-kill-emacs nil)
 
-(use-package lsp-ui
-  :ensure t
-  :commands lsp-ui-mode
-  :init
-)
+;; (use-package lsp-ui
+;;   :ensure t
+;;   :commands lsp-ui-mode
+;;   :init
+;; )
 
 ;; (setq lsp-ui-doc-enable nil
 ;;       lsp-ui-peek-enable t
@@ -95,44 +95,44 @@
 ;; enable flycheck
 ;; (add-hook 'go-mode-hook 'flycheck-mode)
 
-;; don't even need it since there's already quite a lot built in !!!
+;; ;; don't even need it since there's already quite a lot built in !!!
 ;; (add-to-list 'yas-snippet-dirs "~/gits/yasnippet-go")
 
 ;; Bonus: escape analysis.
-;; (require 'flycheck)
-;; (flycheck-define-checker go-build-escape
-;;   "A Go escape checker using `go build -gcflags -m'."
-;;   :command ("go" "build" "-gcflags" "-m"
-;;             (option-flag "-i" flycheck-go-build-install-deps)
-;;             ;; multiple tags are listed as "dev debug ..."
-;;             (option-list "-tags=" flycheck-go-build-tags concat)
-;;             "-o" null-device)
-;;   :error-patterns
-;;   (
-;;    (warning line-start (file-name) ":" line ":"
-;;           (optional column ":") " "
-;;           (message (one-or-more not-newline) "escapes to heap")
-;;           line-end)
-;;    (warning line-start (file-name) ":" line ":"
-;;           (optional column ":") " "
-;;           (message "moved to heap:" (one-or-more not-newline))
-;;           line-end)
-;;    (info line-start (file-name) ":" line ":"
-;;           (optional column ":") " "
-;;           (message "inlining call to " (one-or-more not-newline))
-;;           line-end)
-;;   )
-;;   :modes go-mode
-;;   :predicate (lambda ()
-;;                (and (flycheck-buffer-saved-p)
-;;                     (not (string-suffix-p "_test.go" (buffer-file-name)))))
-;;   :next-checkers ((warning . go-errcheck)
-;;                   (warning . go-unconvert)
-;;                   (warning . go-staticcheck)))
+(require 'flycheck)
+(flycheck-define-checker go-build-escape
+  "A Go escape checker using `go build -gcflags -m'."
+  :command ("go" "build" "-gcflags" "-m"
+            (option-flag "-i" flycheck-go-build-install-deps)
+            ;; multiple tags are listed as "dev debug ..."
+            (option-list "-tags=" flycheck-go-build-tags concat)
+            "-o" null-device)
+  :error-patterns
+  (
+   (warning line-start (file-name) ":" line ":"
+          (optional column ":") " "
+          (message (one-or-more not-newline) "escapes to heap")
+          line-end)
+   (warning line-start (file-name) ":" line ":"
+          (optional column ":") " "
+          (message "moved to heap:" (one-or-more not-newline))
+          line-end)
+   (info line-start (file-name) ":" line ":"
+          (optional column ":") " "
+          (message "inlining call to " (one-or-more not-newline))
+          line-end)
+  )
+  :modes go-mode
+  :predicate (lambda ()
+               (and (flycheck-buffer-saved-p)
+                    (not (string-suffix-p "_test.go" (buffer-file-name)))))
+  :next-checkers ((warning . go-errcheck)
+                  (warning . go-unconvert)
+                  (warning . go-staticcheck)))
 
-;; (with-eval-after-load 'flycheck
-;;    (add-to-list 'flycheck-checkers 'go-build-escape)
-;;    (flycheck-add-next-checker 'go-gofmt 'go-build-escape))
+(with-eval-after-load 'flycheck
+   (add-to-list 'flycheck-checkers 'go-build-escape)
+   (flycheck-add-next-checker 'go-gofmt 'go-build-escape))
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
