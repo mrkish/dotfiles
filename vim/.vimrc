@@ -7,6 +7,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': ['go']}
 Plug 'sebdah/vim-delve', {'for': ['go']}
 Plug 'buoto/gotests-vim', {'for': ['go']}
+" Plug 'neovim/go-client'
+" Plug 'zchee/nvim-go', { 'do': 'make'}
 
 " Plug 'rust-lang/rust'
 " Plug '~/.vim/plugged/mq2-syntax'

@@ -37,7 +37,8 @@
 (setq org-directory "~/org/")
 
 (setq evil-normal-state-cursor '(box "chartreuse")
-      evil-insert-state-cursor '(bar "dark orchid")
+      evil-insert-state-cursor '(bar "orange red")
+      ;; evil-insert-state-cursor '(bar "magenta")
       evil-visual-state-cursor '(hollow "dark orange"))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -50,17 +51,12 @@
 ;; Disable the horrible quitting messages
 (setq confirm-kill-emacs nil)
 
-;; (add-to-list 'exec-path "~/go/bin")
-
-;; ;; Go stuff
-;; (add-hook 'go-mode-hook 'lsp-deferred)
-;; (setq gofmt-command "goimports")
-
-;; (add-hook 'before-save-hook 'gofmt-before-save)
-;; (add-hook 'after-init-hook 'global-company-mode)
-
-;; (require 'go-complete)
-;; (add-hook 'completion-at-point-functions 'go-complete-at-point)
+;; pretty flashing
+(require 'beacon)
+(beacon-mode 1)
+(setq beacon-size 80)
+(setq beacon-push-mark 20)
+(setq beacon-color "turquoise")
 
 ;; ;; don't even need it since there's already quite a lot built in !!!
 ;; ;; (add-to-list 'yas-snippet-dirs "~/gits/yasnippet-go")
