@@ -54,7 +54,7 @@
 ;; pretty flashing
 (require 'beacon)
 (beacon-mode 1)
-(setq beacon-size 80)
+(setq beacon-size 40)
 (setq beacon-push-mark 20)
 (setq beacon-color "turquoise")
 
