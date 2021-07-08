@@ -8,6 +8,8 @@ fi
 autoload -Uz compinit
 compinit
 
+export FPATH=/usr/local/share/zsh/site-functions:/usr/local/Cellar/zsh/5.8_1/share/zsh/functions
+
 # If you come from bash you might have to change your $PATH.
 # export GOPATH=$HOME/code/Go
 export GOPATH=$HOME/go
@@ -24,7 +26,10 @@ export PATH=$PATH:$GOBIN
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig
 export PATH=$PATH:/Users/cn188380/bin
 export PATH=$HOME/.emacs.d/bin:$PATH
+
 export CONFIG_FILE_PATH="./config.json"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+
 export EDITOR='nvim'
 export KUBE_EDITOR='nvim'
 

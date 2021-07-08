@@ -24,7 +24,11 @@ Plug 'folke/trouble.nvim'
 Plug 'folke/zen-mode.nvim'
 Plug 'yamatsum/nvim-nonicons'
 Plug 'nvim-telescope/telescope-fzf-writer.nvim'
+Plug 'ray-x/lsp_signature.nvim'
 " Plug 'ray-x/lsp_signature.nvim'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': ['go']}
 Plug 'sebdah/vim-delve', {'for': ['go']}
@@ -97,6 +101,16 @@ nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>fl :Lines<CR>
 nnoremap <Leader>fb :Buffers<CR>
 nnoremap <Leader>fp :Commands<CR>
+
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 nmap <silent><Leader>n :NERDTreeToggle<Enter>
 
@@ -195,7 +209,7 @@ require'compe'.setup {
     ultisnips = true;
   };
 }
-
+require('lsp_signature').on_attach()
 require'lspconfig'.gopls.setup{on_attach=require'compe'.on_attach}
 
 require'telescope'.setup{
@@ -265,6 +279,7 @@ require'telescope'.setup{
  -- refer to the configuration section below
  }
 
+
  require("neogit").setup{}
 
 require('lualine').setup{
@@ -272,6 +287,17 @@ require('lualine').setup{
    theme = 'gruvbox-flat'
   }
 }
+
+require('nvim-autopairs').setup()
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+
 --  cfg = {
 --   bind = true, -- This is mandatory, otherwise border config won't get registered.
 --                -- If you want to hook lspsaga or other signature handler, pls set to false
@@ -296,13 +322,4 @@ require('lualine').setup{
 -- 
 -- require'lsp_signature'.on_attach(cfg)
 
-require('nvim-autopairs').setup()
-
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
-  },
-}
 EOF
