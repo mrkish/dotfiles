@@ -52,11 +52,11 @@
 (setq confirm-kill-emacs nil)
 
 ;; pretty flashing
-(require 'beacon)
-(beacon-mode 1)
-(setq beacon-size 40)
-(setq beacon-push-mark 20)
-(setq beacon-color "turquoise")
+;; (require 'beacon)
+;; (beacon-mode 1)
+;; (setq beacon-size 40)
+;; (setq beacon-push-mark 20)
+;; (setq beacon-color "turquoise")
 
 ;; ;; don't even need it since there's already quite a lot built in !!!
 ;; ;; (add-to-list 'yas-snippet-dirs "~/gits/yasnippet-go")

@@ -67,7 +67,7 @@
 (package! go-gen-test)
 (package! flycheck-golangci-lint)
 (package! go-dlv)
-(package! beacon)
+;; (package! beacon)
 
 ;; Git
 (package! magit)
