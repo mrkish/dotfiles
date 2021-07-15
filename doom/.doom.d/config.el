@@ -134,6 +134,12 @@
    (add-to-list 'flycheck-checkers 'go-build-escape)
    (flycheck-add-next-checker 'go-gofmt 'go-build-escape))
 
+(map! :ne "SPC k" #'save-buffer)
+
+(after! org
+  (map! :map org-mode-map
+        :n "M-j" #'org-metadown
+        :n "M-k" #'org-metaup))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
